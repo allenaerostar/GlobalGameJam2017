@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class KnockUpBlock : MonoBehaviour {
-	
+
+	public GameObject audienceBlock;
 	public GameObject leftBlock;
 	public GameObject rightBlock;
 	public float seconds;
@@ -11,12 +12,12 @@ public class KnockUpBlock : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
 	}
 
 	IEnumerator KnockUp(int range, float force, bool direction){
 		if (range != 0){
 			GetComponent<Rigidbody2D> ().AddForce (transform.up * force, ForceMode2D.Impulse);
+			audienceBlock.GetComponent<Rigidbody2D> ().AddForce (transform.up * force, ForceMode2D.Impulse);
 
 			//false = left, true = right
 			yield return new WaitForSeconds (seconds);
