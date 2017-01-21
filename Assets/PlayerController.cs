@@ -18,6 +18,10 @@ public class PlayerController : MonoBehaviour {
     int groundMask;
     string fire = "Fire";
 
+    // Make into coroutine later
+    public float spikeCD;
+    float currentCD;
+
     // Use this for initialization
     void Start () {
         chargeLvl = 0f;
@@ -25,6 +29,7 @@ public class PlayerController : MonoBehaviour {
         groundMask = LayerMask.GetMask("Ground");
         fire += playerNo;
         Debug.Log(fire);
+        currentCD = 0;
 	}
 	
 	// Update is called once per frame
@@ -47,10 +52,14 @@ public class PlayerController : MonoBehaviour {
         else {
             chargeLvl = 0;
             Collider2D ballInReach = Physics2D.OverlapCircle(new Vector2 (transform.position.x + circleOffset.x, transform.position.y + circleOffset.y), circleRadius, layerMask: LayerMask.GetMask("Ball"));
-            if (ballInReach != null && Input.GetButtonDown(fire))
+            if (ballInReach != null && Input.GetButtonDown(fire) && currentCD <= 0)
             {
                 SmashTheBall(ballInReach.gameObject);
             }
+        }
+
+        if (currentCD > 0) {
+            currentCD -= Time.deltaTime;
         }
 
 	}
@@ -70,5 +79,6 @@ public class PlayerController : MonoBehaviour {
         //Smash the ball
         Vector2 dirToBall = ball.transform.position - transform.position;
         ball.GetComponent<Rigidbody2D>().AddForce(ballSmashMultiplier * dirToBall, ForceMode2D.Impulse);
+        currentCD = spikeCD;
     }
 }
