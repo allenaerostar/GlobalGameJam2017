@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Timer : MonoBehaviour {
+public class TimerLeo : MonoBehaviour {
 
 	public Text timerDisplay;
 
@@ -51,13 +51,5 @@ public class Timer : MonoBehaviour {
 		} else {
 			return (min + ":" + sec);
 		}
-	}
-
-	public void pauseTimer(){
-		Time.timeScale = 0;
-	}
-
-	public void resumeTimer(){
-		Time.timeScale = 1;
 	}
 }
