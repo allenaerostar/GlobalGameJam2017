@@ -9,6 +9,7 @@ public class GoalNet_script : MonoBehaviour {
     //references the scoreCounter GameObject.
     public GameObject scoreCounterRef;
 
+    //Checks whenever the ball enters the net, call ballExplode() and updates team scores accordingly.
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Ball"))
