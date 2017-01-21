@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class GoalNet_script : MonoBehaviour {
 
+    //sets which team does the net belong to.
     public string teamOfNet;
+    //references the scoreCounter GameObject.
     public GameObject scoreCounterRef;
 
     void OnTriggerEnter2D(Collider2D other)

@@ -12,6 +12,7 @@ public class GeneralBall_script : MonoBehaviour {
         anim = this.GetComponent<Animator>();
     }
 
+    //Freezes ball midair, plays explosion animation, then destroys ball after explosion animation ends.
     public void ballExplode()
     {
         this.GetComponent<Rigidbody2D>().Sleep();
