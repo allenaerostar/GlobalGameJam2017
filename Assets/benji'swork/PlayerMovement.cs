@@ -21,10 +21,10 @@ public class PlayerMovement : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		dir = Input.GetAxis(horizontal);
-		if (dir < 0f && facingRight) {
+		if (dir < -0.05f && facingRight) {
 			facingRight = false;
 			transform.localScale = new Vector3(-1 * transform.localScale.x, transform.localScale.y, transform.localScale.z);
-		} else if (dir > 0f && !facingRight) {
+		} else if (dir > 0.05f && !facingRight) {
 			facingRight = true;
 			transform.localScale = new Vector3(-1 * transform.localScale.x, transform.localScale.y, transform.localScale.z);
 		}

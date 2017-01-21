@@ -47,6 +47,7 @@ public class GameBehaviour : MonoBehaviour {
 		}
 
 		//After overtime
-		//Show some UI and freeze physics
+		//Show some UI
+
 	}
 }
