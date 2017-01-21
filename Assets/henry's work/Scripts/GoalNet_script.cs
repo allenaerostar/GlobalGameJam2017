@@ -1,0 +1,22 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class GoalNet_script : MonoBehaviour {
+
+    public string teamOfNet;
+    public GameObject scoreCounterRef;
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Ball"))
+        {
+            if (teamOfNet == "Blue")
+                scoreCounterRef.GetComponent<ScoreCounter_script>().teamBlueScore += 1;
+            else if (teamOfNet == "Red")
+                scoreCounterRef.GetComponent<ScoreCounter_script>().teamRedScore += 1;
+            else
+                Debug.Log(gameObject.name + " has teamOfNet variable set to an incorrect name, please set to either 'Red' or 'Blue'.");
+        }
+    }
+}
