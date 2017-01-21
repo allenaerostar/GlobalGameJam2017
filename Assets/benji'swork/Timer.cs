@@ -40,14 +40,19 @@ public class Timer : MonoBehaviour {
 
 	//Get string of current time in min:sec
 	public string getClockTime(){
-		int min = (int)(timeInSeconds / 60);
-		int sec = (int)timeInSeconds - (min*60);
-		// return value depends on if sec has only 1 digit
-		if (sec < 10) {
-			return (min + ":0" + sec);
+		if (timeInSeconds > 0f) {
+			int min = (int)(timeInSeconds / 60);
+			int sec = (int)timeInSeconds - (min * 60);
+			// return value depends on if sec has only 1 digit
+			if (sec < 10) {
+				return (min + ":0" + sec);
+			} else {
+				return (min + ":" + sec);
+			}
 		} else {
-			return (min + ":" + sec);
+			return "OVERTIME";
 		}
+
 	}
 
 	public void pauseTimer(){
