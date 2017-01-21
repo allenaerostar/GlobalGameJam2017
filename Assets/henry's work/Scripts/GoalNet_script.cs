@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class GoalNet_script : MonoBehaviour {
 
+    //sets which team does the net belong to.
     public string teamOfNet;
+    //references the scoreCounter GameObject.
     public GameObject scoreCounterRef;
 
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Ball"))
         {
+            other.GetComponent<GeneralBall_script>().ballExplode();
             if (teamOfNet == "Blue")
                 scoreCounterRef.GetComponent<ScoreCounter_script>().teamBlueScore += 1;
             else if (teamOfNet == "Red")
