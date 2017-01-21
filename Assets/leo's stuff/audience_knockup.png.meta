@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 4c6ca884c1a99c145bd03a24eef27f33
 timeCreated: 1485017561
+=======
+guid: a5fdbfb80948852449ef0297f3d7b32b
+timeCreated: 1485019964
+>>>>>>> origin/benji
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName: {}

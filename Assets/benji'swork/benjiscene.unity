@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  horizontal: Horizontal1
+  playerNo: 1
 --- !u!50 &57256283
 Rigidbody2D:
   serializedVersion: 4
