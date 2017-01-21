@@ -26,6 +26,8 @@ public class PlayerController : MonoBehaviour {
     //announcing attack
     public bool canMove;
 
+    Animator anim;
+
     // Use this for initialization
     void Start () {
         chargeLvl = 0f;
@@ -35,21 +37,27 @@ public class PlayerController : MonoBehaviour {
         Debug.Log(fire);
         currentCD = 0;
         canMove = true;
+
+        anim = GetComponent<Animator>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
         onGround = Physics2D.Raycast(transform.position, Vector2.down, distance: groundcastDist, layerMask: groundMask);
+        anim.SetBool("grounded", onGround);
         if (onGround)
         {
             if (Input.GetButton(fire) && chargeLvl < maxCharge)
             {
                 canMove = false;
                 chargeLvl += Time.deltaTime * chargeSpeed;
+                anim.SetBool("charging", true);
                 // risk of overcharge?
             }
             else if (Input.GetButtonUp(fire))
             {
+                anim.SetBool("charging", false);
+                anim.SetTrigger("fire");
                 SmashTheTile();
                 chargeLvl = 0;
                 canMove = true;
@@ -108,6 +116,7 @@ public class PlayerController : MonoBehaviour {
         while (!onGround) {
             Collider2D ballInReach = Physics2D.OverlapCircle(new Vector2(transform.position.x + circleOffset.x, transform.position.y + circleOffset.y), circleRadius, layerMask: LayerMask.GetMask("Ball"));
             if (ballInReach != null && Input.GetButtonDown(fire)) {
+                anim.SetTrigger("fire");
                 SmashTheBall(ballInReach.gameObject);
                 yield return new WaitForSeconds(spikeCD);
             }
