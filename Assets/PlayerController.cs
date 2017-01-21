@@ -85,7 +85,7 @@ public class PlayerController : MonoBehaviour {
         RaycastHit2D findBlock = Physics2D.Raycast(transform.position, Vector2.down, distance: groundcastDist, layerMask: LayerMask.GetMask("Block"));
         Debug.Log(onGround + "  " + chargeLvl);
         if (findBlock.collider != null) {
-            findBlock.collider.gameObject.GetComponent<KnockUpBlock>().StartKnockUp(25, flatForce, transform.localScale.x > 0);
+            findBlock.collider.gameObject.GetComponent<KnockUpBlock>().StartKnockUp((int)chargeLvl, flatForce, transform.localScale.x > 0);
 
         }
     }
