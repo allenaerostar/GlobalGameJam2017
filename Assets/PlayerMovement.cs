@@ -5,8 +5,9 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour {
 
 	public float speed;
-	public string horizontal;
+	public int playerNo;
 
+	string horizontal;
 	float dir;
 	Rigidbody2D rb;
 	bool facingRight = true;
@@ -14,6 +15,7 @@ public class PlayerMovement : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody2D> ();
+		horizontal = "Horizontal" + playerNo;
 	}
 	
 	// Update is called once per frame
