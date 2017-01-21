@@ -23,6 +23,9 @@ public class PlayerController : MonoBehaviour {
     public float spikeCD;
     float currentCD;
 
+    //announcing attack
+    bool canMove;
+
     // Use this for initialization
     void Start () {
         chargeLvl = 0f;
@@ -31,6 +34,7 @@ public class PlayerController : MonoBehaviour {
         fire += playerNo;
         Debug.Log(fire);
         currentCD = 0;
+        canMove = true;
 	}
 	
 	// Update is called once per frame
@@ -40,6 +44,7 @@ public class PlayerController : MonoBehaviour {
         {
             if (Input.GetButton(fire) && chargeLvl < maxCharge)
             {
+                canMove = false;
                 chargeLvl += Time.deltaTime * chargeSpeed;
                 // risk of overcharge?
             }
@@ -47,9 +52,12 @@ public class PlayerController : MonoBehaviour {
             {
                 SmashTheTile();
                 chargeLvl = 0;
+                canMove = true;
             }
-
-            launchedCheck = false;
+            if (launchedCheck)
+            {
+                launchedCheck = false;
+            }
         }
 
         else
@@ -107,7 +115,21 @@ public class PlayerController : MonoBehaviour {
                 yield return new WaitForFixedUpdate();
             }
         }
-
+        Disable(2);
         yield return null;
+    }
+
+    void Disable(float time)
+    {
+        enabled = false;
+        // If we were called multiple times, reset timer.
+        CancelInvoke("Enable");
+        // Note: Even if we have disabled the script, Invoke will still run.
+        Invoke("Enable", time);
+    }
+
+    void Enable()
+    {
+        enabled = true;
     }
 }
