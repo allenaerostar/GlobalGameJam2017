@@ -15,17 +15,18 @@ public class KnockUpBlock : MonoBehaviour {
 	}
 
 	IEnumerator KnockUp(int range, float force, bool direction){
+		if(range != 0){
+			GetComponent<Rigidbody2D> ().AddForce (transform.up * force, ForceMode2D.Impulse);
 
-		GetComponent<Rigidbody2D> ().AddForce (transform.up * force, ForceMode2D.Impulse);
-		//false = left, true = right
-		yield return new WaitForSeconds (seconds);
+			//false = left, true = right
+			yield return new WaitForSeconds (seconds);
 
-		if (leftBlock!= null && !direction && range!= 0) {
-			StartCoroutine (leftBlock.GetComponent<KnockUpBlock> ().KnockUp(range - 1, force, direction));
-		} else if(rightBlock != null && direction && range!= 0) {
-			StartCoroutine(rightBlock.GetComponent<KnockUpBlock>().KnockUp(range -1, force, direction));
+			if (leftBlock!= null && !direction) {
+				StartCoroutine (leftBlock.GetComponent<KnockUpBlock> ().KnockUp(range - 1, force, direction));
+			} else if(rightBlock != null && direction) {
+				StartCoroutine(rightBlock.GetComponent<KnockUpBlock>().KnockUp(range -1, force, direction));
+			}
 		}
-
 	}
 
 	public void StartKnockUp(int range, float force, bool direction){
