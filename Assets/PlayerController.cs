@@ -4,36 +4,40 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
-    float chargeLvl;
     public float maxCharge;
     public float chargeSpeed;
-    bool onGround;
     public float groundcastDist;
-    int groundMask;
     public Vector2 circleOffset;
     public float circleRadius;
     public float ballSmashMultiplier;
-    
+    public float flatForce;
+    public int playerNo;
+
+    float chargeLvl;
+    bool onGround;
+    int groundMask;
+    string fire = "Fire";
 
     // Use this for initialization
     void Start () {
         chargeLvl = 0f;
         onGround = false;
-        groundMask = LayerMask.NameToLayer("Ground");
+        groundMask = LayerMask.GetMask("Ground");
+        fire += playerNo;
+        Debug.Log(fire);
 	}
 	
 	// Update is called once per frame
 	void Update () {
         onGround = Physics2D.Raycast(transform.position, Vector2.down, distance: groundcastDist, layerMask: groundMask);
-
         if (onGround)
         {
-            if (Input.GetButton("Fire") && chargeLvl < maxCharge)
+            if (Input.GetButton(fire) && chargeLvl < maxCharge)
             {
                 chargeLvl += Time.deltaTime * chargeSpeed;
                 // risk of overcharge?
             }
-            else if (Input.GetButtonUp("Fire"))
+            else if (Input.GetButtonUp(fire))
             {
                 SmashTheTile();
                 chargeLvl = 0;
@@ -42,8 +46,8 @@ public class PlayerController : MonoBehaviour {
 
         else {
             chargeLvl = 0;
-            Collider2D ballInReach = Physics2D.OverlapCircle(new Vector2 (transform.position.x + circleOffset.x, transform.position.y + circleOffset.y), circleRadius, layerMask: LayerMask.NameToLayer("Ball"));
-            if (ballInReach != null && Input.GetButtonDown("Fire"))
+            Collider2D ballInReach = Physics2D.OverlapCircle(new Vector2 (transform.position.x + circleOffset.x, transform.position.y + circleOffset.y), circleRadius, layerMask: LayerMask.GetMask("Ball"));
+            if (ballInReach != null && Input.GetButtonDown(fire))
             {
                 SmashTheBall(ballInReach.gameObject);
             }
@@ -54,9 +58,11 @@ public class PlayerController : MonoBehaviour {
     void SmashTheTile() {
         //Smash the tile
         //Use localscale.x for dir
-        RaycastHit2D findBlock = Physics2D.Raycast(transform.position, Vector2.down, distance: groundcastDist, layerMask: LayerMask.NameToLayer("Block"));
-        if (findBlock) {
-            findBlock.collider.gameObject.GetComponent<KnockUpBlock>().StartKnockUp((int)chargeLvl, chargeLvl, transform.localScale.x == 1);
+        RaycastHit2D findBlock = Physics2D.Raycast(transform.position, Vector2.down, distance: groundcastDist, layerMask: LayerMask.GetMask("Block"));
+        Debug.Log((findBlock.collider == null) + "  " + chargeLvl);
+        if (findBlock.collider != null) {
+            findBlock.collider.gameObject.GetComponent<KnockUpBlock>().StartKnockUp((int)chargeLvl, flatForce, transform.localScale.x > 0);
+
         }
     }
 
