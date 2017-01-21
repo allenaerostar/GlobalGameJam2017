@@ -5,16 +5,14 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour {
 
-	public Text timerDisplay;
-
 	public float maxTimeInSeconds;
 	public float timeInSeconds;
 
+	public int countdownNum;
 	public bool counting = false;
 
 	// Use this for initialization
 	void Start () {
-		timerDisplay = GetComponent<Text>();
 		timeInSeconds = maxTimeInSeconds;
 		counting = true;
 	}
@@ -29,7 +27,6 @@ public class Timer : MonoBehaviour {
 				counting = false;
 			}
 		}
-		timerDisplay.text = getClockTime ();
 	}
 
 	//Start and pause timer
@@ -43,14 +40,19 @@ public class Timer : MonoBehaviour {
 
 	//Get string of current time in min:sec
 	public string getClockTime(){
-		int min = (int)(timeInSeconds / 60);
-		int sec = (int)timeInSeconds - (min*60);
-		// return value depends on if sec has only 1 digit
-		if (sec < 10) {
-			return (min + ":0" + sec);
+		if (timeInSeconds > 0f) {
+			int min = (int)(timeInSeconds / 60);
+			int sec = (int)timeInSeconds - (min * 60);
+			// return value depends on if sec has only 1 digit
+			if (sec < 10) {
+				return (min + ":0" + sec);
+			} else {
+				return (min + ":" + sec);
+			}
 		} else {
-			return (min + ":" + sec);
+			return "OVERTIME";
 		}
+
 	}
 
 	public void pauseTimer(){
@@ -59,5 +61,28 @@ public class Timer : MonoBehaviour {
 
 	public void resumeTimer(){
 		Time.timeScale = 1;
+	}
+
+	//CountDown from 3 - 2 - 1
+	public void countdown(int startFrom){
+		//reset counter to startFrom
+		countdownNum = startFrom;
+		StartCoroutine (frozenCountdown());
+	}
+
+
+	IEnumerator frozenCountdown(){
+		pauseTimer ();
+
+		while (countdownNum > 0) {
+			float start = Time.realtimeSinceStartup;
+			while (Time.realtimeSinceStartup < start + 1f)
+			{ 
+				yield return null; 
+			}
+			countdownNum--;
+		}
+
+		resumeTimer ();
 	}
 }
