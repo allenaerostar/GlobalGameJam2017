@@ -28,7 +28,7 @@ public class ScoreCounter_script : MonoBehaviour {
     }
 	
     //resets both team's score to 0.
-    void restartScore()
+    public void restartScore()
     {
         teamBlueScore = 0;
         teamRedScore = 0;
