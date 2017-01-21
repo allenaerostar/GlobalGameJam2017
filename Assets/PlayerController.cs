@@ -18,11 +18,13 @@ public class PlayerController : MonoBehaviour {
     bool launchedCheck;
     int groundMask;
     string fire = "Fire";
-    AudioSource aud;
 
     // Make into coroutine later
     public float spikeCD;
     float currentCD;
+
+    //announcing attack
+    bool canMove;
 
     // Use this for initialization
     void Start () {
@@ -32,7 +34,7 @@ public class PlayerController : MonoBehaviour {
         fire += playerNo;
         Debug.Log(fire);
         currentCD = 0;
-        aud = GetComponent<AudioSource>();
+        canMove = true;
 	}
 	
 	// Update is called once per frame
@@ -42,6 +44,7 @@ public class PlayerController : MonoBehaviour {
         {
             if (Input.GetButton(fire) && chargeLvl < maxCharge)
             {
+                canMove = false;
                 chargeLvl += Time.deltaTime * chargeSpeed;
                 // risk of overcharge?
             }
@@ -49,10 +52,10 @@ public class PlayerController : MonoBehaviour {
             {
                 SmashTheTile();
                 chargeLvl = 0;
+                canMove = true;
             }
             if (launchedCheck)
             {
-                aud.Play();
                 launchedCheck = false;
             }
         }
@@ -112,7 +115,21 @@ public class PlayerController : MonoBehaviour {
                 yield return new WaitForFixedUpdate();
             }
         }
-
+        Disable(2);
         yield return null;
+    }
+
+    void Disable(float time)
+    {
+        enabled = false;
+        // If we were called multiple times, reset timer.
+        CancelInvoke("Enable");
+        // Note: Even if we have disabled the script, Invoke will still run.
+        Invoke("Enable", time);
+    }
+
+    void Enable()
+    {
+        enabled = true;
     }
 }
