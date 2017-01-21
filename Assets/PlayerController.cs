@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour {
     float currentCD;
 
     //announcing attack
-    bool canMove;
+    public bool canMove;
 
     // Use this for initialization
     void Start () {
