@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Timer : MonoBehaviour {
 
-	public int maxTimeInSeconds;
-	public int timeInSeconds;
+	public float maxTimeInSeconds;
+	public float timeInSeconds;
 
-	public float counting = false;
+	public bool counting = false;
 
 	// Use this for initialization
 	void Start () {
@@ -21,7 +21,7 @@ public class Timer : MonoBehaviour {
 			timeInSeconds -= Time.deltaTime;
 			//Finish Counting
 			if (timeInSeconds < 0f) {
-				timeInSeconds = 0;
+				timeInSeconds = 0f;
 				counting = false;
 			}
 		}
@@ -38,8 +38,8 @@ public class Timer : MonoBehaviour {
 
 	//Get string of current time in min:sec
 	public string getClockTime(){
-		int min = timeInSeconds % 60;
-		int sec = timeInSeconds - (timeInSeconds / 60);
+		int min = (int)(timeInSeconds % 60);
+		int sec = ((int)timeInSeconds - (int)(timeInSeconds / 60));
 
 		return (min + ":" + sec);
 	}
