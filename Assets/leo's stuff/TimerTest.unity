@@ -365,10 +365,10 @@ RectTransform:
   m_Father: {fileID: 1246437519}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: -192}
+  m_SizeDelta: {x: -864, y: -354}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1636241995
 MonoBehaviour:
@@ -435,3 +435,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7632204600878644a3deacb756411c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timerText: {fileID: 1636241995}
+  timer: {fileID: 1636241993}
