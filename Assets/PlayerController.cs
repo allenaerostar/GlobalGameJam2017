@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour {
 
     float chargeLvl;
     bool onGround;
+    bool launchedCheck;
     int groundMask;
     string fire = "Fire";
 
@@ -47,11 +48,20 @@ public class PlayerController : MonoBehaviour {
                 SmashTheTile();
                 chargeLvl = 0;
             }
+
+            launchedCheck = false;
         }
 
-        else {
+        else
+        {
             chargeLvl = 0;
-            Collider2D ballInReach = Physics2D.OverlapCircle(new Vector2 (transform.position.x + circleOffset.x, transform.position.y + circleOffset.y), circleRadius, layerMask: LayerMask.GetMask("Ball"));
+            if (!launchedCheck)
+            {
+                StartCoroutine(WatchForSmash());
+                launchedCheck = true;
+            }
+        }
+            /*Collider2D ballInReach = Physics2D.OverlapCircle(new Vector2 (transform.position.x + circleOffset.x, transform.position.y + circleOffset.y), circleRadius, layerMask: LayerMask.GetMask("Ball"));
             if (ballInReach != null && Input.GetButtonDown(fire) && currentCD <= 0)
             {
                 SmashTheBall(ballInReach.gameObject);
@@ -60,8 +70,8 @@ public class PlayerController : MonoBehaviour {
 
         if (currentCD > 0) {
             currentCD -= Time.deltaTime;
-        }
-
+        }*/
+       
 	}
 
     void SmashTheTile() {
@@ -78,7 +88,26 @@ public class PlayerController : MonoBehaviour {
     void SmashTheBall(GameObject ball) {
         //Smash the ball
         Vector2 dirToBall = ball.transform.position - transform.position;
-        ball.GetComponent<Rigidbody2D>().AddForce(ballSmashMultiplier * dirToBall, ForceMode2D.Impulse);
+        float angle = -Vector2.Angle(Vector2.down, dirToBall)/2;
+        Vector2 newDir = Quaternion.Euler(0, 0, angle) * dirToBall;
+        Debug.Log("dirToBall " + dirToBall + ", hit Vector " + newDir);
+        ball.GetComponent<Rigidbody2D>().AddForce(ballSmashMultiplier * newDir, ForceMode2D.Impulse);
         currentCD = spikeCD;
+    }
+
+    IEnumerator WatchForSmash() {
+
+        while (!onGround) {
+            Collider2D ballInReach = Physics2D.OverlapCircle(new Vector2(transform.position.x + circleOffset.x, transform.position.y + circleOffset.y), circleRadius, layerMask: LayerMask.GetMask("Ball"));
+            if (ballInReach != null && Input.GetButtonDown(fire)) {
+                SmashTheBall(ballInReach.gameObject);
+                yield return new WaitForSeconds(spikeCD);
+            }
+            else {
+                yield return new WaitForFixedUpdate();
+            }
+        }
+
+        yield return null;
     }
 }
