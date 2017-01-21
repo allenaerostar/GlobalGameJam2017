@@ -60,7 +60,6 @@ public class PlayerController : MonoBehaviour {
                 anim.SetTrigger("fire");
                 SmashTheTile();
                 chargeLvl = 0;
-                canMove = true;
             }
             if (launchedCheck)
             {
@@ -97,7 +96,8 @@ public class PlayerController : MonoBehaviour {
         Debug.Log(onGround + "  " + chargeLvl);
         if (findBlock.collider != null) {
             findBlock.collider.gameObject.GetComponent<KnockUpBlock>().StartKnockUp((int)chargeLvl, flatForce, transform.localScale.x > 0);
-
+            canMove = true;
+            Disable(2);
         }
     }
 
@@ -124,7 +124,6 @@ public class PlayerController : MonoBehaviour {
                 yield return new WaitForFixedUpdate();
             }
         }
-        Disable(2);
         yield return null;
     }
 
