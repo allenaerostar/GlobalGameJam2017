@@ -29,7 +29,7 @@ public class GameBehaviour : MonoBehaviour {
 
 		//spawns ball
 		GameObject ball = (GameObject)Instantiate(ballPrefab);
-		ball.transform = new Vector2 (0, 0);
+		ball.transform.position = new Vector2 (0, 0);
 
 	}
 
