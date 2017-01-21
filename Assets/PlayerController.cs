@@ -59,7 +59,7 @@ public class PlayerController : MonoBehaviour {
         //Smash the tile
         //Use localscale.x for dir
         RaycastHit2D findBlock = Physics2D.Raycast(transform.position, Vector2.down, distance: groundcastDist, layerMask: LayerMask.GetMask("Block"));
-        Debug.Log((findBlock.collider == null) + "  " + chargeLvl);
+        Debug.Log(onGround + "  " + chargeLvl);
         if (findBlock.collider != null) {
             findBlock.collider.gameObject.GetComponent<KnockUpBlock>().StartKnockUp((int)chargeLvl, flatForce, transform.localScale.x > 0);
 
