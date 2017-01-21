@@ -15,7 +15,7 @@ public class KnockUpBlock : MonoBehaviour {
 	}
 
 	IEnumerator KnockUp(int range, float force, bool direction){
-		if(range != 0){
+		if (range != 0){
 			GetComponent<Rigidbody2D> ().AddForce (transform.up * force, ForceMode2D.Impulse);
 
 			//false = left, true = right
