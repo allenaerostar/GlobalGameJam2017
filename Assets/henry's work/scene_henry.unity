@@ -103,7 +103,8 @@ GameObject:
   - component: {fileID: 701683632}
   - component: {fileID: 701683631}
   - component: {fileID: 701683635}
-  m_Layer: 0
+  - component: {fileID: 701683636}
+  m_Layer: 8
   m_Name: PLACEHOLDER_ball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -200,9 +201,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 701683630}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b09b7d736ea108540b087ccb76eaa8a4, type: 3}
+  m_Script: {fileID: 11500000, guid: ced6c0e4d3436a34eb97c59f4fb59871, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosion: {fileID: 7400000, guid: bdb980f9f29bc8243a97a9f7487f2dae, type: 2}
+--- !u!95 &701683636
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 701683630}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d8175b120753a2a4387ed8c70eb17961, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1200452831
 GameObject:
   m_ObjectHideFlags: 0
@@ -346,7 +365,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e63d7cf35fa546e4692afc8c30cbfcd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  teamOfNet: Red
+  teamOfNet: Blue
   scoreCounterRef: {fileID: 2094393928}
 --- !u!1 &1661609829
 GameObject:

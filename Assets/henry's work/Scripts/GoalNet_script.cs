@@ -11,6 +11,7 @@ public class GoalNet_script : MonoBehaviour {
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Ball"))
         {
+            other.GetComponent<GeneralBall_script>().ballExplode();
             if (teamOfNet == "Blue")
                 scoreCounterRef.GetComponent<ScoreCounter_script>().teamBlueScore += 1;
             else if (teamOfNet == "Red")
