@@ -103,6 +103,7 @@ public class PlayerController : MonoBehaviour {
 
     void SmashTheBall(GameObject ball) {
         //Smash the ball
+        anim.SetTrigger("fire");
         Vector2 dirToBall = ball.transform.position - transform.position;
         float angle = -Vector2.Angle(Vector2.down, dirToBall)/2;
         Vector2 newDir = Quaternion.Euler(0, 0, angle) * dirToBall;
@@ -118,7 +119,6 @@ public class PlayerController : MonoBehaviour {
         while (!onGround) {
             Collider2D ballInReach = Physics2D.OverlapCircle(new Vector2(transform.position.x + circleOffset.x, transform.position.y + circleOffset.y), circleRadius, layerMask: LayerMask.GetMask("Ball"));
             if (ballInReach != null && Input.GetButtonDown(fire)) {
-                anim.SetTrigger("fire");
                 SmashTheBall(ballInReach.gameObject);
                 yield return new WaitForSeconds(spikeCD);
             }
