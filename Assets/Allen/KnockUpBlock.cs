@@ -17,7 +17,7 @@ public class KnockUpBlock : MonoBehaviour {
 	IEnumerator KnockUp(int range, float force, bool direction){
 		if (range != 0){
 			GetComponent<Rigidbody2D> ().AddForce (transform.up * force, ForceMode2D.Impulse);
-			audienceBlock.GetComponent<Rigidbody2D> ().AddForce (transform.up * force, ForceMode2D.Impulse);
+			audienceBlock.GetComponent<Rigidbody2D> ().AddForce (transform.up * (force-1), ForceMode2D.Impulse);
 
 			//false = left, true = right
 			yield return new WaitForSeconds (seconds);
