@@ -188,6 +188,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosion: {fileID: 7400000, guid: bdb980f9f29bc8243a97a9f7487f2dae, type: 2}
+  explosionSFX: {fileID: 8300000, guid: c809d34ae1ef77b4298c77a99d6bfdaa, type: 3}
 --- !u!212 &212624403655231378
 SpriteRenderer:
   m_ObjectHideFlags: 1
