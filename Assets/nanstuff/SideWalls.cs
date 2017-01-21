@@ -18,6 +18,7 @@ public class SideWalls : MonoBehaviour {
         leftWall.transform.position = c.ViewportToWorldPoint(Vector2.zero);
         GameObject rightWall = new GameObject("rightWall");
         rightWall.transform.position = c.ViewportToWorldPoint(Vector2.right);
+        leftWall.layer = rightWall.layer = LayerMask.NameToLayer("Water");
 
         leftEdge = leftWall.AddComponent<EdgeCollider2D>();
         leftEdge.points = new Vector2[] { Vector3.zero, new Vector2(0, height)};
