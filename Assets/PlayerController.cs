@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour {
     bool launchedCheck;
     int groundMask;
     string fire = "Fire";
+    AudioSource aud;
 
     // Make into coroutine later
     public float spikeCD;
@@ -31,6 +32,7 @@ public class PlayerController : MonoBehaviour {
         fire += playerNo;
         Debug.Log(fire);
         currentCD = 0;
+        aud = GetComponent<AudioSource>();
 	}
 	
 	// Update is called once per frame
@@ -48,8 +50,11 @@ public class PlayerController : MonoBehaviour {
                 SmashTheTile();
                 chargeLvl = 0;
             }
-
-            launchedCheck = false;
+            if (launchedCheck)
+            {
+                aud.Play();
+                launchedCheck = false;
+            }
         }
 
         else
