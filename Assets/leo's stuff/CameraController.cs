@@ -6,15 +6,17 @@ public class CameraController : MonoBehaviour {
 
 	public GameObject ball;
 	public GameObject[] players;
-	public float speed;
-	public float slowSpeed;
-	public float distanceThreshold;
+	public float normalSpeed; // The normal speed of the lerp. Recommend ~0.05
+	public float slowSpeed; // Slower speed of the lerp after a player enters or leaves boundaries. Recommend ~0.01
+	public float slowSpeedTime; // How long the slowSpeed lasts in seconds. Recommend ~3
+	public float distanceThreshold; // Distance from the edge of the screen for player to be considered offscreen. Recommend ~100
 
 	private Vector3 offset;
 	private float midpoint;
 	private Vector3 newPosition;
 	private Camera camera;
 	private bool reconsiderPlayer;
+	private float currentSpeed;
 
 
 	// Use this for initialization
@@ -22,6 +24,7 @@ public class CameraController : MonoBehaviour {
 		offset = transform.position;
 		camera = GetComponent<Camera> ();
 		reconsiderPlayer = false;
+		currentSpeed = normalSpeed;
 	}
 	
 	void LateUpdate () {
@@ -42,15 +45,25 @@ public class CameraController : MonoBehaviour {
 				}
 			} else {
 				reconsiderPlayer = true;
+				StartCoroutine(StartSlowSpeed ());
 			}
 		}
 		midpoint = (min + max)/2;
 		newPosition = new Vector3 (midpoint, 0, 0);
-		if (!reconsiderPlayer) {
-			transform.position = Vector3.Lerp (this.transform.position, newPosition + offset, speed);
-		} else {
-			transform.position = Vector3.Lerp (this.transform.position, newPosition + offset, slowSpeed);
+		transform.position = Vector3.Lerp (this.transform.position, newPosition + offset, currentSpeed);
+		Debug.Log (currentSpeed);
+
+	}
+
+	IEnumerator StartSlowSpeed(){
+		float currTime = 0f;
+		float timeElapsed = 0f;
+		while(timeElapsed < slowSpeedTime){
+			currentSpeed = slowSpeed;
+			timeElapsed += Time.deltaTime;
+			yield return null;
 		}
+		currentSpeed = normalSpeed;
 	}
 }
 
