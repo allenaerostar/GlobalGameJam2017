@@ -107,8 +107,13 @@ AnimatorStateMachine:
   m_Name: Base Layer
   m_ChildStates:
   - serializedVersion: 1
+<<<<<<< HEAD
     m_State: {fileID: 1102396279714016718}
     m_Position: {x: 300, y: 156, z: 0}
+=======
+    m_State: {fileID: 1102457579373770978}
+    m_Position: {x: 360, y: -12, z: 0}
+>>>>>>> origin/benji
   - serializedVersion: 1
     m_State: {fileID: 1102615596101518866}
     m_Position: {x: 288, y: 60, z: 0}

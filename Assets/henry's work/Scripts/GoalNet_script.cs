@@ -10,6 +10,8 @@ public class GoalNet_script : MonoBehaviour {
     public string teamOfNet;
     //references the scoreCounter GameObject.
     public GameObject scoreCounterRef;
+	//reference to GameBehaviour
+	public GameObject gameBehaviour;
 
     void Start()
     {
@@ -21,14 +23,18 @@ public class GoalNet_script : MonoBehaviour {
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Ball"))
         {
+			//Play Anim
             audiosource.PlayDelayed(0.7f);
             other.GetComponent<GeneralBall_script>().ballExplode();
-            if (teamOfNet == "Blue")
+            //Add points
+			if (teamOfNet == "Blue")
                 scoreCounterRef.GetComponent<ScoreCounter_script>().teamBlueScore += 1;
             else if (teamOfNet == "Red")
                 scoreCounterRef.GetComponent<ScoreCounter_script>().teamRedScore += 1;
             else
                 Debug.Log(gameObject.name + " has teamOfNet variable set to an incorrect name, please set to either 'Red' or 'Blue'.");
+			//Reset Playing field
+			gameObject.GetComponent<GameBehaviour>().resetAllPositions();
         }
     }
 }

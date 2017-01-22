@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4112155765891580}
   - component: {fileID: 212084147693470688}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: object_7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 61185242407332828}
   - component: {fileID: 114683806004059954}
   - component: {fileID: 82781795388014342}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: BlueGoalNet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 4034860684791012}
   - component: {fileID: 212258286905236552}
   - component: {fileID: 68450647903788326}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: GoalNet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4169328792874036}
   - component: {fileID: 212301554516150236}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: object_10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,7 +87,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4295424730809596}
   - component: {fileID: 212377573539142234}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: object_8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -156,8 +156,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1697049332446034}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.73, y: 0.35, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 17.13, y: 1, z: 0}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children:
   - {fileID: 4034860684791012}
   m_Father: {fileID: 0}
@@ -302,6 +302,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   teamOfNet: Blue
   scoreCounterRef: {fileID: 0}
+  gameBehaviour: {fileID: 0}
 --- !u!212 &212084147693470688
 SpriteRenderer:
   m_ObjectHideFlags: 1
