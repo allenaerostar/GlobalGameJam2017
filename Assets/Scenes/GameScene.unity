@@ -1977,6 +1977,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4b016e1db55a54348bcb3233e0803be7, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &339217273 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1311949203300078, guid: f782d2173dcab5249bffb1e47267c858,
+    type: 2}
+  m_PrefabInternal: {fileID: 36167022}
 --- !u!4 &341150905 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4116642708408924, guid: 44c44daef6a780e43b913902147b2f70,
@@ -3245,8 +3250,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawns:
-  - {fileID: 1854502144}
-  getTime: {fileID: 0}
+  - {fileID: 1568995964}
+  getTime: {fileID: 339217273}
   ballPrefab: {fileID: 1079191673783218, guid: 1550961d094abae43a37551990f8cb0e, type: 2}
   teamBlueScore: {fileID: 1663582168}
   teamRedScore: {fileID: 1663582168}
@@ -7776,6 +7781,11 @@ Transform:
   m_PrefabParentObject: {fileID: 4616951953028648, guid: 773cedfe0dc41c642bc377747e73706e,
     type: 2}
   m_PrefabInternal: {fileID: 1564924577}
+--- !u!1 &1568995964 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1321053478567468, guid: 0db81237331439544a60ae431345703e,
+    type: 2}
+  m_PrefabInternal: {fileID: 1670225989}
 --- !u!4 &1580426313 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4025401089853268, guid: 60a475afc1a6bb14185723e207530b15,
