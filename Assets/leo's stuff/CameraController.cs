@@ -38,7 +38,9 @@ public class CameraController : MonoBehaviour {
 				} else if (playerX < min) {
 					min = playerX;
 				}
+				// TODO: set inactivate arrow
 			} else {
+				// TODO: set arrow activate
 				reconsiderPlayer = true;
 			}
 		}
@@ -52,3 +54,4 @@ public class CameraController : MonoBehaviour {
 		}
 	}
 }
+
