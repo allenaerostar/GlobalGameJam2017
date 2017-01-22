@@ -75,10 +75,10 @@ public class OffscreenIndicator : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		string path_to_indic = "Sprites/arrow";
+		string path_to_indic = "Sprites/object";
 		indicator = Instantiate(Resources.Load("Prefabs/indic")) as GameObject;
 		Sprite[] indics = Resources.LoadAll<Sprite> (path_to_indic);
-		indicator.GetComponent<SpriteRenderer> ().sprite = indics[playerNum - 1];
+		indicator.GetComponent<SpriteRenderer> ().sprite = indics[playerNum + 15];
 
 		cameraPos = Camera.main.transform.position;
 		cameraSize.x = Vector2.Distance (Camera.main.ScreenToWorldPoint(new Vector2(0,0)),Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, 0)));
@@ -150,7 +150,7 @@ public class OffscreenIndicator : MonoBehaviour {
 	}
 
 	private void rotateIndicator(float angle){
-		indicator.transform.eulerAngles = new Vector3(0,0,angle);
+		indicator.transform.eulerAngles = new Vector3(0,0,angle+180);
 	}
 
 	private bool betweenFloats(float limit1, float limit2, float between){
@@ -171,5 +171,9 @@ public class OffscreenIndicator : MonoBehaviour {
 		}
 
 		return false;
-	} 
+	}
+
+	void OnDestroy() {
+		Destroy (indicator);
+	}
 }

@@ -11,9 +11,12 @@ public class GameBehaviour : MonoBehaviour {
 	public GameObject teamBlueScore;
 	public GameObject teamRedScore;
 
+	public GameObject camera;
+
 	// Use this for initialization
 	void Start () {
-		StartCoroutine (watchForEnd());
+  //      getTime.GetComponent<Timer>().pauseTimer();
+        StartCoroutine (watchForEnd());
 	}
 	
 	// Update is called once per frame
@@ -28,9 +31,14 @@ public class GameBehaviour : MonoBehaviour {
 		}
 
 		//spawns ball
-		GameObject ball = (GameObject)Instantiate(ballPrefab);
-		ball.transform.position = new Vector2 (0, 0);
+        Invoke("ballSpawn", 3f);
+	}
 
+    void ballSpawn()
+    {
+        GameObject ball = (GameObject)Instantiate(ballPrefab);
+        ball.transform.position = new Vector2(0, 2);
+		camera.GetComponent<CameraController> ().setNewBall (ball);
 	}
 
 	IEnumerator watchForEnd(){
@@ -41,9 +49,13 @@ public class GameBehaviour : MonoBehaviour {
 		int teamBlueCurrentScore = teamBlueScore.GetComponent<ScoreCounter_script>().teamBlueScore;
 		int teamRedCurrentScore = teamRedScore.GetComponent<ScoreCounter_script>().teamRedScore;
 
-		while (teamBlueCurrentScore == teamBlueScore.GetComponent<ScoreCounter_script> ().teamBlueScore &&
-		      teamRedCurrentScore == teamRedScore.GetComponent<ScoreCounter_script> ().teamRedScore) {
-			yield return new WaitForFixedUpdate ();
+		if (teamBlueCurrentScore == teamRedCurrentScore) {
+			getTime.GetComponent<Timer> ().overtime = true;
+			while (teamBlueCurrentScore == teamBlueScore.GetComponent<ScoreCounter_script> ().teamBlueScore &&
+				teamRedCurrentScore == teamRedScore.GetComponent<ScoreCounter_script> ().teamRedScore) {
+				yield return new WaitForFixedUpdate ();
+			}
+			getTime.GetComponent<Timer> ().overtime = false;
 		}
 
 		//After overtime
