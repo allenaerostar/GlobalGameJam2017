@@ -5,13 +5,13 @@ using UnityEngine;
 
 public class PopulateProperties : MonoBehaviour {
 
+	public GameObject background;
 
 	// Use this for initialization
 	void Start () {
 		populateKnockUp (GetComponentsInChildren<KnockUpBlock> ().ToList());	
-		print(GetComponentsInChildren<KnockUpBlock> ().ToList());
-		print ("Count:" + GetComponentsInChildren<KnockUpBlock> ().ToList ().Count);
-
+		//populateAudience (background.GetComponentsInChildren<SpriteRenderer> ().ToList (), GetComponentsInChildren<KnockUpBlock> ().ToList());
+		//setWeight(background.GetComponentsInChildren<SpriteRenderer> ().ToList ());
 	}
 
 	public void assignLeftAndRight(List<KnockUpBlock> children){
@@ -19,6 +19,30 @@ public class PopulateProperties : MonoBehaviour {
 		List<KnockUpBlock> sortedChildren = merge_sort (children);
 		populateKnockUp (sortedChildren);
 
+	}
+
+	public void setWeight(List<SpriteRenderer> children){
+		for (int i = 0; i < children.Count; i++) {
+			GameObject go = children [i].gameObject;
+			if (go.name.Contains ("Column")) {
+				for (int j = 0; j < go.transform.childCount; j++) {
+					go.transform.GetChild (j).gameObject.GetComponent<Rigidbody2D> ().mass = 2000;
+				}
+			}
+		}
+	}
+
+	public void populateAudience(List<SpriteRenderer> children, List<KnockUpBlock> me){
+		for (int i = 0; i < me.Count; i++) {
+			float x = me [i].transform.position.x;
+			for (int j = 0; j < children.Count; j++) {
+				if (children [j].gameObject.name.Contains ("Column"))
+				if (Mathf.Abs (children [j].transform.position.x - x) < 0.2f) {
+					me [i].audienceBlock = children [j].gameObject;
+					break;
+				} 
+			}
+		}
 	}
 
 	public void populateKnockUp(List<KnockUpBlock> sortedChildren){

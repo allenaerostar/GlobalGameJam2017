@@ -29,7 +29,13 @@ public class KnockUpBlock : MonoBehaviour {
 			} else if(rightBlock != null && direction) {
 				StartCoroutine(rightBlock.GetComponent<KnockUpBlock>().KnockUp(range -1, force, direction));
 			}
-			audienceBlock.GetComponent<Rigidbody2D> ().AddForce (transform.up * (force-1), ForceMode2D.Impulse);
+
+			for (int i = 0; i < audienceBlock.transform.childCount; i++) {
+				GameObject go = audienceBlock.transform.GetChild (i).gameObject;
+				if(go.GetComponent<KnockUpAudience>().grounded)
+					go.GetComponent<Rigidbody2D> ().AddForce (transform.up * (force-1), ForceMode2D.Impulse);
+			}
+				
 		}
 	}
 
