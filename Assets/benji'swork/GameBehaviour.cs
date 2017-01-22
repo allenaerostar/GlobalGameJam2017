@@ -11,6 +11,8 @@ public class GameBehaviour : MonoBehaviour {
 	public GameObject teamBlueScore;
 	public GameObject teamRedScore;
 
+	public GameObject camera;
+
 	// Use this for initialization
 	void Start () {
 		StartCoroutine (watchForEnd());
@@ -30,7 +32,7 @@ public class GameBehaviour : MonoBehaviour {
 		//spawns ball
 		GameObject ball = (GameObject)Instantiate(ballPrefab);
 		ball.transform.position = new Vector2 (0, 0);
-
+		camera.GetComponent<CameraController> ().setNewBall (ball);
 	}
 
 	IEnumerator watchForEnd(){

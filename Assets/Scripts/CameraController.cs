@@ -5,9 +5,9 @@ using UnityEngine;
 public class CameraController : MonoBehaviour {
 
 	public GameObject ball;
-	public GameObject[] players;
+	public GameObject[] players; // Needs at least one player to function properly
 	public float normalSpeed; // The normal speed of the lerp. Recommend ~0.05
-	public float slowSpeed; // Slower speed of the lerp after a player enters or leaves boundaries. Recommend ~0.01
+	public float slowSpeed; // Slower speed of the lerp after a player enters or leaves boundaries. Recommend ~0.03
 	public float slowSpeedTime; // How long the slowSpeed lasts in seconds. Recommend ~3
 	public float distanceThreshold; // Distance from the edge of the screen for player to be considered offscreen. Recommend ~100
 
@@ -18,6 +18,8 @@ public class CameraController : MonoBehaviour {
 	private bool reconsiderPlayer;
 	private float currentSpeed;
 
+	private float min;
+	private float max;
 
 	// Use this for initialization
 	void Start () {
@@ -29,9 +31,15 @@ public class CameraController : MonoBehaviour {
 	
 	void LateUpdate () {
 		reconsiderPlayer = false;
-		// set min and max to ball's x (this means the ball is always considered in the midpoint calcuation)
-		float min = ball.transform.position.x;
-		float max = ball.transform.position.x;
+		// if ball hasn't been destroyed
+		if (ball != null) {
+			// set min and max to ball's x (this means the ball is always considered in the midpoint calcuation)
+			min = ball.transform.position.x;
+			max = ball.transform.position.x;
+		} else {
+			min = players[0].transform.position.x;
+			max = players[0].transform.position.x;
+		}
 		foreach (GameObject player in players){
 			float playerX = player.transform.position.x;
 
@@ -51,8 +59,6 @@ public class CameraController : MonoBehaviour {
 		midpoint = (min + max)/2;
 		newPosition = new Vector3 (midpoint, 0, 0);
 		transform.position = Vector3.Lerp (this.transform.position, newPosition + offset, currentSpeed);
-		Debug.Log (currentSpeed);
-
 	}
 
 	IEnumerator StartSlowSpeed(){
