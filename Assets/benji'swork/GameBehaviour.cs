@@ -13,7 +13,8 @@ public class GameBehaviour : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		StartCoroutine (watchForEnd());
+        getTime.GetComponent<Timer>().pauseTimer();
+        StartCoroutine (watchForEnd());
 	}
 	
 	// Update is called once per frame
@@ -27,11 +28,16 @@ public class GameBehaviour : MonoBehaviour {
 			obj.GetComponent<PlayerReposition_script> ().resetPos ();
 		}
 
-		//spawns ball
-		GameObject ball = (GameObject)Instantiate(ballPrefab);
-		ball.transform.position = new Vector2 (0, 0);
+        //spawns ball
+        Invoke("ballSpawn", 3f);
 
 	}
+
+    void ballSpawn()
+    {
+        GameObject ball = (GameObject)Instantiate(ballPrefab);
+        ball.transform.position = new Vector2(0, 2);
+    }
 
 	IEnumerator watchForEnd(){
 		while (getTime.GetComponent<Timer> ().timeInSeconds > 0f) {
