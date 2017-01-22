@@ -35,18 +35,18 @@ public class SideWalls : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        float heightInc = height;
-        leftWall.size = new Vector2(leftWall.size.x, leftWall.size.y + heightInc);
-        leftWall.offset = new Vector2(0, heightInc - baseHeight/2);
-        rightWall.size = new Vector2(rightWall.size.x, rightWall.size.y + heightInc);
-        rightWall.offset = new Vector2(0, heightInc - baseHeight / 2);
+		float heightInc = leftWall.size.y;
+        leftWall.size = new Vector2(leftWall.size.x, leftWall.size.y * 2);
+        //leftWall.offset = new Vector2(0, heightInc - baseHeight/2);
+        rightWall.size = new Vector2(rightWall.size.x, rightWall.size.y * 2);
+        //rightWall.offset = new Vector2(0, heightInc - baseHeight / 2);
 
         Vector2[] ptList = ceiling.points;
         for (int i = 0; i < ceiling.points.Length; i++) {
             ptList[i].y += heightInc;
         }
         ceiling.points = ptList;
-        height *= 2;
+        //height *= 2;
         Debug.Log("New height!");
     } 
 }

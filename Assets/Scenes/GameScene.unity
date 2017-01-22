@@ -229,8 +229,8 @@ EdgeCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   m_Points:
-  - {x: 20, y: -0.3}
-  - {x: -20, y: -0.3}
+  - {x: 30, y: -0.3}
+  - {x: -30, y: -0.3}
 --- !u!4 &96418087
 Transform:
   m_ObjectHideFlags: 0
@@ -301,18 +301,6 @@ GameObject:
   m_PrefabParentObject: {fileID: 1982234178989582, guid: 17abc4511fd8c2648abd6f3e4b54c80e,
     type: 2}
   m_PrefabInternal: {fileID: 1308414793}
---- !u!114 &176984603
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 176984602}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d41f3110a23a274b92c5554a13c66f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startPosition: {x: 2, y: -3}
 --- !u!1 &205603103
 GameObject:
   m_ObjectHideFlags: 0
@@ -624,6 +612,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawns:
   - {fileID: 1568995964}
+  - {fileID: 176984602}
+  - {fileID: 228167525}
+  - {fileID: 1572747605}
   getTime: {fileID: 339217273}
   ballPrefab: {fileID: 1079191673783218, guid: 1550961d094abae43a37551990f8cb0e, type: 2}
   teamBlueScore: {fileID: 1663582168}
@@ -1840,15 +1831,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 16
       objectReference: {fileID: 0}
-    - target: {fileID: 114824636054279644, guid: 17abc4511fd8c2648abd6f3e4b54c80e,
-        type: 2}
-      propertyPath: facingRight
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4984951288551154, guid: 17abc4511fd8c2648abd6f3e4b54c80e, type: 2}
-      propertyPath: m_LocalScale.x
-      value: -1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 17abc4511fd8c2648abd6f3e4b54c80e, type: 2}
   m_IsPrefabParent: 0
@@ -2257,15 +2239,6 @@ Prefab:
     - target: {fileID: 4373988506666322, guid: 0db81237331439544a60ae431345703e, type: 2}
       propertyPath: m_RootOrder
       value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4373988506666322, guid: 0db81237331439544a60ae431345703e, type: 2}
-      propertyPath: m_LocalScale.x
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114892030414082664, guid: 0db81237331439544a60ae431345703e,
-        type: 2}
-      propertyPath: facingRight
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0db81237331439544a60ae431345703e, type: 2}
