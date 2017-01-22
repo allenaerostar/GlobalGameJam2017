@@ -139,7 +139,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxCharge: 5
   chargeSpeed: 6
-  groundcastDist: 6
+  groundcastDist: 2
   circleOffset: {x: 3, y: 0}
   circleRadius: 5
   ballSmashMultiplier: 1.5

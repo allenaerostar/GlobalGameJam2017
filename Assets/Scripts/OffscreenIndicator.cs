@@ -150,7 +150,7 @@ public class OffscreenIndicator : MonoBehaviour {
 	}
 
 	private void rotateIndicator(float angle){
-		indicator.transform.eulerAngles = new Vector3(0,0,angle);
+		indicator.transform.eulerAngles = new Vector3(0,0,angle+180);
 	}
 
 	private bool betweenFloats(float limit1, float limit2, float between){
