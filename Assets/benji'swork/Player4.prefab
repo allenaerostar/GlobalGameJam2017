@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4675694681841588}
   - component: {fileID: 212602192522069796}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: StaticArrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 95691820659140760}
   - component: {fileID: 61904663121023668}
   - component: {fileID: 114629241116758678}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Player4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
