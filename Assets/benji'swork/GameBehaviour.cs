@@ -49,9 +49,13 @@ public class GameBehaviour : MonoBehaviour {
 		int teamBlueCurrentScore = teamBlueScore.GetComponent<ScoreCounter_script>().teamBlueScore;
 		int teamRedCurrentScore = teamRedScore.GetComponent<ScoreCounter_script>().teamRedScore;
 
-		while (teamBlueCurrentScore == teamBlueScore.GetComponent<ScoreCounter_script> ().teamBlueScore &&
-		      teamRedCurrentScore == teamRedScore.GetComponent<ScoreCounter_script> ().teamRedScore) {
-			yield return new WaitForFixedUpdate ();
+		if (teamBlueCurrentScore == teamRedCurrentScore) {
+			getTime.GetComponent<Timer> ().overtime = true;
+			while (teamBlueCurrentScore == teamBlueScore.GetComponent<ScoreCounter_script> ().teamBlueScore &&
+				teamRedCurrentScore == teamRedScore.GetComponent<ScoreCounter_script> ().teamRedScore) {
+				yield return new WaitForFixedUpdate ();
+			}
+			getTime.GetComponent<Timer> ().overtime = false;
 		}
 
 		//After overtime

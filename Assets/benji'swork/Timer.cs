@@ -9,6 +9,7 @@ public class Timer : MonoBehaviour {
 
 	public int countdownNum;
 	public bool counting = false;
+	public bool overtime = false;
 
 	// Use this for initialization
 	void Start () {
@@ -49,7 +50,10 @@ public class Timer : MonoBehaviour {
 				return (min + ":" + sec);
 			}
 		} else {
-			return "OVERTIME";
+			if(overtime)
+				return "OVERTIME";
+			else
+				return ("0:00");
 		}
 
 	}
