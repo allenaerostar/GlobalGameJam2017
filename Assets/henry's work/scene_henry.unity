@@ -516,49 +516,45 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4414535743672722, guid: a2de07bcd0109334e955f73d1a89c4ba, type: 2}
+    - target: {fileID: 4688463137557108, guid: 9c4c1daf9569009409b3ab8c42916b71, type: 2}
       propertyPath: m_LocalPosition.x
       value: -1.09
       objectReference: {fileID: 0}
-    - target: {fileID: 4414535743672722, guid: a2de07bcd0109334e955f73d1a89c4ba, type: 2}
+    - target: {fileID: 4688463137557108, guid: 9c4c1daf9569009409b3ab8c42916b71, type: 2}
       propertyPath: m_LocalPosition.y
       value: -0.83
       objectReference: {fileID: 0}
-    - target: {fileID: 4414535743672722, guid: a2de07bcd0109334e955f73d1a89c4ba, type: 2}
+    - target: {fileID: 4688463137557108, guid: 9c4c1daf9569009409b3ab8c42916b71, type: 2}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4414535743672722, guid: a2de07bcd0109334e955f73d1a89c4ba, type: 2}
+    - target: {fileID: 4688463137557108, guid: 9c4c1daf9569009409b3ab8c42916b71, type: 2}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4414535743672722, guid: a2de07bcd0109334e955f73d1a89c4ba, type: 2}
+    - target: {fileID: 4688463137557108, guid: 9c4c1daf9569009409b3ab8c42916b71, type: 2}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4414535743672722, guid: a2de07bcd0109334e955f73d1a89c4ba, type: 2}
+    - target: {fileID: 4688463137557108, guid: 9c4c1daf9569009409b3ab8c42916b71, type: 2}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4414535743672722, guid: a2de07bcd0109334e955f73d1a89c4ba, type: 2}
+    - target: {fileID: 4688463137557108, guid: 9c4c1daf9569009409b3ab8c42916b71, type: 2}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4414535743672722, guid: a2de07bcd0109334e955f73d1a89c4ba, type: 2}
+    - target: {fileID: 4688463137557108, guid: 9c4c1daf9569009409b3ab8c42916b71, type: 2}
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 1977047781912654, guid: a2de07bcd0109334e955f73d1a89c4ba, type: 2}
-      propertyPath: m_Name
-      value: RedGoalNet
-      objectReference: {fileID: 0}
-    - target: {fileID: 114930433848680430, guid: a2de07bcd0109334e955f73d1a89c4ba,
+    - target: {fileID: 114630981143945048, guid: 9c4c1daf9569009409b3ab8c42916b71,
         type: 2}
       propertyPath: scoreCounterRef
       value: 
       objectReference: {fileID: 2094393928}
     m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: a2de07bcd0109334e955f73d1a89c4ba, type: 2}
+  m_ParentPrefab: {fileID: 100100000, guid: 9c4c1daf9569009409b3ab8c42916b71, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &2094393928
 GameObject:
