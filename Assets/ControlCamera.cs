@@ -26,12 +26,12 @@ public class ControlCamera : MonoBehaviour {
 	}
 	
 	void LateUpdate(){
-		
+		/*
 		transform.position.x = player1.transform.position.x + average.x;
 		offset1 = transform.position - player1.transform.position;
 		offset2 = transform.position - player2.transform.position;
 		offset3 = transform.position - player3.transform.position;
 		offset4 = transform.position - player4.transform.position;
 		average = (offset1 + offset2 + offset3 + offset4) / 4;
-	}
+*/	}
 }
