@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 9cb13704933230343bbca8131af183bf
-timeCreated: 1485033707
+timeCreated: 1485097344
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -126,7 +126,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 1154
+        y: 1110
         width: 225
         height: 310
       alignment: 0
@@ -139,7 +139,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 225
-        y: 1154
+        y: 1110
         width: 225
         height: 310
       alignment: 0
@@ -152,7 +152,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 450
-        y: 1154
+        y: 1110
         width: 225
         height: 310
       alignment: 0
@@ -165,7 +165,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 675
-        y: 1154
+        y: 1110
         width: 225
         height: 310
       alignment: 0
@@ -178,7 +178,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 900
-        y: 1154
+        y: 1110
         width: 225
         height: 310
       alignment: 0
@@ -191,7 +191,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1125
-        y: 1154
+        y: 1110
         width: 225
         height: 310
       alignment: 0
@@ -204,7 +204,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1350
-        y: 1154
+        y: 1110
         width: 225
         height: 310
       alignment: 0
@@ -217,7 +217,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1575
-        y: 1154
+        y: 1110
         width: 225
         height: 310
       alignment: 0
@@ -229,8 +229,8 @@ TextureImporter:
       name: Player-Basketball-Red_8
       rect:
         serializedVersion: 2
-        x: 1800
-        y: 1154
+        x: 0
+        y: 800
         width: 225
         height: 310
       alignment: 0
@@ -242,8 +242,8 @@ TextureImporter:
       name: Player-Basketball-Red_9
       rect:
         serializedVersion: 2
-        x: 0
-        y: 844
+        x: 225
+        y: 800
         width: 225
         height: 310
       alignment: 0
@@ -255,8 +255,8 @@ TextureImporter:
       name: Player-Basketball-Red_10
       rect:
         serializedVersion: 2
-        x: 225
-        y: 844
+        x: 450
+        y: 800
         width: 225
         height: 310
       alignment: 0
@@ -268,8 +268,8 @@ TextureImporter:
       name: Player-Basketball-Red_11
       rect:
         serializedVersion: 2
-        x: 450
-        y: 844
+        x: 675
+        y: 800
         width: 225
         height: 310
       alignment: 0
@@ -281,8 +281,8 @@ TextureImporter:
       name: Player-Basketball-Red_12
       rect:
         serializedVersion: 2
-        x: 675
-        y: 844
+        x: 900
+        y: 800
         width: 225
         height: 310
       alignment: 0
@@ -294,8 +294,8 @@ TextureImporter:
       name: Player-Basketball-Red_13
       rect:
         serializedVersion: 2
-        x: 900
-        y: 844
+        x: 1125
+        y: 800
         width: 225
         height: 310
       alignment: 0
@@ -307,8 +307,8 @@ TextureImporter:
       name: Player-Basketball-Red_14
       rect:
         serializedVersion: 2
-        x: 1125
-        y: 844
+        x: 1350
+        y: 800
         width: 225
         height: 310
       alignment: 0
@@ -320,8 +320,8 @@ TextureImporter:
       name: Player-Basketball-Red_15
       rect:
         serializedVersion: 2
-        x: 1350
-        y: 844
+        x: 1575
+        y: 800
         width: 225
         height: 310
       alignment: 0
@@ -333,8 +333,8 @@ TextureImporter:
       name: Player-Basketball-Red_16
       rect:
         serializedVersion: 2
-        x: 1575
-        y: 844
+        x: 0
+        y: 490
         width: 225
         height: 310
       alignment: 0
@@ -346,8 +346,8 @@ TextureImporter:
       name: Player-Basketball-Red_17
       rect:
         serializedVersion: 2
-        x: 1800
-        y: 844
+        x: 225
+        y: 490
         width: 225
         height: 310
       alignment: 0
@@ -359,8 +359,8 @@ TextureImporter:
       name: Player-Basketball-Red_18
       rect:
         serializedVersion: 2
-        x: 0
-        y: 534
+        x: 450
+        y: 490
         width: 225
         height: 310
       alignment: 0
@@ -372,8 +372,8 @@ TextureImporter:
       name: Player-Basketball-Red_19
       rect:
         serializedVersion: 2
-        x: 225
-        y: 534
+        x: 675
+        y: 490
         width: 225
         height: 310
       alignment: 0
@@ -385,8 +385,8 @@ TextureImporter:
       name: Player-Basketball-Red_20
       rect:
         serializedVersion: 2
-        x: 450
-        y: 534
+        x: 900
+        y: 490
         width: 225
         height: 310
       alignment: 0
@@ -398,8 +398,8 @@ TextureImporter:
       name: Player-Basketball-Red_21
       rect:
         serializedVersion: 2
-        x: 675
-        y: 534
+        x: 1125
+        y: 490
         width: 225
         height: 310
       alignment: 0
@@ -411,8 +411,8 @@ TextureImporter:
       name: Player-Basketball-Red_22
       rect:
         serializedVersion: 2
-        x: 900
-        y: 534
+        x: 1350
+        y: 490
         width: 225
         height: 310
       alignment: 0
@@ -424,8 +424,8 @@ TextureImporter:
       name: Player-Basketball-Red_23
       rect:
         serializedVersion: 2
-        x: 1125
-        y: 534
+        x: 1575
+        y: 490
         width: 225
         height: 310
       alignment: 0
@@ -437,8 +437,8 @@ TextureImporter:
       name: Player-Basketball-Red_24
       rect:
         serializedVersion: 2
-        x: 1350
-        y: 534
+        x: 0
+        y: 180
         width: 225
         height: 310
       alignment: 0
@@ -450,8 +450,8 @@ TextureImporter:
       name: Player-Basketball-Red_25
       rect:
         serializedVersion: 2
-        x: 1575
-        y: 534
+        x: 225
+        y: 180
         width: 225
         height: 310
       alignment: 0
@@ -463,8 +463,8 @@ TextureImporter:
       name: Player-Basketball-Red_26
       rect:
         serializedVersion: 2
-        x: 1800
-        y: 534
+        x: 450
+        y: 180
         width: 225
         height: 310
       alignment: 0
@@ -476,8 +476,8 @@ TextureImporter:
       name: Player-Basketball-Red_27
       rect:
         serializedVersion: 2
-        x: 0
-        y: 224
+        x: 675
+        y: 180
         width: 225
         height: 310
       alignment: 0
@@ -489,8 +489,8 @@ TextureImporter:
       name: Player-Basketball-Red_28
       rect:
         serializedVersion: 2
-        x: 225
-        y: 224
+        x: 900
+        y: 180
         width: 225
         height: 310
       alignment: 0
@@ -502,8 +502,8 @@ TextureImporter:
       name: Player-Basketball-Red_29
       rect:
         serializedVersion: 2
-        x: 450
-        y: 224
+        x: 1125
+        y: 180
         width: 225
         height: 310
       alignment: 0
@@ -515,8 +515,8 @@ TextureImporter:
       name: Player-Basketball-Red_30
       rect:
         serializedVersion: 2
-        x: 675
-        y: 224
+        x: 1350
+        y: 180
         width: 225
         height: 310
       alignment: 0
@@ -528,60 +528,8 @@ TextureImporter:
       name: Player-Basketball-Red_31
       rect:
         serializedVersion: 2
-        x: 900
-        y: 224
-        width: 225
-        height: 310
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Player-Basketball-Red_32
-      rect:
-        serializedVersion: 2
-        x: 1125
-        y: 224
-        width: 225
-        height: 310
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Player-Basketball-Red_33
-      rect:
-        serializedVersion: 2
-        x: 1350
-        y: 224
-        width: 225
-        height: 310
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Player-Basketball-Red_34
-      rect:
-        serializedVersion: 2
         x: 1575
-        y: 224
-        width: 225
-        height: 310
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Player-Basketball-Red_35
-      rect:
-        serializedVersion: 2
-        x: 1800
-        y: 224
+        y: 180
         width: 225
         height: 310
       alignment: 0
