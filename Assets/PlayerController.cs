@@ -124,7 +124,9 @@ public class PlayerController : MonoBehaviour {
         float angle = -Vector2.Angle(Vector2.down, dirToBall)/2;
         Vector2 newDir = Quaternion.Euler(0, 0, angle) * dirToBall;
         Debug.Log("dirToBall " + dirToBall + ", hit Vector " + newDir);
-        ball.GetComponent<Rigidbody2D>().AddForce(ballSmashMultiplier * newDir, ForceMode2D.Impulse);
+		Rigidbody2D ballRb = ball.GetComponent<Rigidbody2D> ();
+		ballRb.velocity = Vector2.zero;
+		ballRb.AddForce(ballSmashMultiplier * newDir, ForceMode2D.Impulse);
         currentCD = spikeCD;
     }
 
