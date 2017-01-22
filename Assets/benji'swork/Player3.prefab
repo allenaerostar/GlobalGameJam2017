@@ -151,7 +151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  playerNo: 1
+  playerNo: 3
 --- !u!114 &114852604014994548
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -170,7 +170,7 @@ MonoBehaviour:
   circleRadius: 5
   ballSmashMultiplier: 2
   flatForce: 10000
-  playerNo: 1
+  playerNo: 3
   spikeCD: 0.5
   canMove: 0
 --- !u!212 &212109348017353466

@@ -144,7 +144,7 @@ MonoBehaviour:
   circleRadius: 5
   ballSmashMultiplier: 1.5
   flatForce: 5
-  playerNo: 1
+  playerNo: 2
   spikeCD: 2
   canMove: 0
 --- !u!114 &114824636054279644
@@ -159,7 +159,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  playerNo: 1
+  playerNo: 2
 --- !u!212 &212155748753791162
 SpriteRenderer:
   m_ObjectHideFlags: 1
