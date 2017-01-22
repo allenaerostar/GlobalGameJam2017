@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class RestartGame : MonoBehaviour {
 
@@ -14,8 +15,13 @@ public class RestartGame : MonoBehaviour {
 	}
 
 	void Restart(){
-		// restart the game here
+		SceneManager.LoadScene (SceneManager.GetActiveScene().name);
+	}
 
-
+	// Can also restart with R or the space bar
+	void Update(){
+		if (Input.GetKeyDown (KeyCode.R) || Input.GetKeyDown (KeyCode.Space)) {
+			Restart ();
+		}
 	}
 }
