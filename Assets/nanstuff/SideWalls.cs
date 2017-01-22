@@ -37,9 +37,9 @@ public class SideWalls : MonoBehaviour {
     {
         float heightInc = height;
         leftWall.size = new Vector2(leftWall.size.x, leftWall.size.y + heightInc);
-        leftWall.offset = new Vector2(0, height - baseHeight/2);
+        leftWall.offset = new Vector2(0, heightInc - baseHeight/2);
         rightWall.size = new Vector2(rightWall.size.x, rightWall.size.y + heightInc);
-        rightWall.offset = new Vector2(0, height - baseHeight / 2);
+        rightWall.offset = new Vector2(0, heightInc - baseHeight / 2);
 
         Vector2[] ptList = ceiling.points;
         for (int i = 0; i < ceiling.points.Length; i++) {
