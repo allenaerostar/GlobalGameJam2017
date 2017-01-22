@@ -130,16 +130,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 223173986207271556, guid: f782d2173dcab5249bffb1e47267c858,
-        type: 2}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 1200452835}
-    - target: {fileID: 114744074088730156, guid: f782d2173dcab5249bffb1e47267c858,
-        type: 2}
-      propertyPath: m_UiScaleMode
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f782d2173dcab5249bffb1e47267c858, type: 2}
   m_IsPrefabParent: 0
