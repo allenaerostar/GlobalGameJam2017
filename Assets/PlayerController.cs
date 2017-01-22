@@ -72,6 +72,8 @@ public class PlayerController : MonoBehaviour {
         else
         {
             chargeLvl = 0;
+            canMove = true;
+            anim.SetBool("charging", false);
             if (!launchedCheck)
             {
                 StartCoroutine(WatchForSmash());
