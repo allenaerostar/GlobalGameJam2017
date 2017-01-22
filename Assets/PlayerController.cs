@@ -60,7 +60,9 @@ public class PlayerController : MonoBehaviour {
                 if (chargeLvl >= 1)
                 {
                     SmashTheTile();
+                    Disable(spikeCD);
                 }
+                canMove = true;
                 chargeLvl = 0;
             }
             if (launchedCheck)
@@ -105,21 +107,18 @@ public class PlayerController : MonoBehaviour {
         Debug.Log(onGround + "  " + chargeLvl);
         if (findBlock.Length != 0) {
             if (transform.localScale.x > 0) {
-                findBlock[findBlock.Length - 1].gameObject.GetComponent<KnockUpBlock>().StartKnockUp((int)chargeLvl, flatForce, true);
+                getGreatestX(findBlock).GetComponent<KnockUpBlock>().StartKnockUp((int)chargeLvl, flatForce, true);
             }
             else
             {
-                findBlock[0].gameObject.GetComponent<KnockUpBlock>().StartKnockUp((int)chargeLvl, flatForce, false);
+                getLeastX(findBlock).GetComponent<KnockUpBlock>().StartKnockUp((int)chargeLvl, flatForce, false);
             }
             
-            canMove = true;
-            Disable(spikeCD);
         }
     }
 
     void SmashTheBall(GameObject ball) {
         //Smash the ball
-        anim.SetTrigger("fire");
         Vector2 dirToBall = ball.transform.position - transform.position;
         float angle = -Vector2.Angle(Vector2.down, dirToBall)/2;
         Vector2 newDir = Quaternion.Euler(0, 0, angle) * dirToBall;
@@ -133,14 +132,28 @@ public class PlayerController : MonoBehaviour {
     IEnumerator WatchForSmash() {
 
         while (!onGround) {
-            Collider2D ballInReach = Physics2D.OverlapCircle(new Vector2(transform.position.x + circleOffset.x, transform.position.y + circleOffset.y), circleRadius, layerMask: LayerMask.GetMask("Ball"));
-            if (ballInReach != null && Input.GetButtonDown(fire)) {
-                SmashTheBall(ballInReach.gameObject);
-                yield return new WaitForSeconds(spikeCD);
+            Collider2D ballInReach = Physics2D.OverlapCircle(
+                new Vector2(transform.position.x + circleOffset.x, transform.position.y + circleOffset.y), 
+                circleRadius, 
+                layerMask: LayerMask.GetMask("Ball"));
+            if (Input.GetButtonDown(fire))
+            {
+                anim.SetTrigger("fire");
+                if (ballInReach != null)
+                {
+                    SmashTheBall(ballInReach.gameObject);
+                    yield return new WaitForSeconds(spikeCD);
+                }
+                else
+                {
+                    yield return new WaitForFixedUpdate();
+                }
             }
-            else {
+            else
+            {
                 yield return new WaitForFixedUpdate();
             }
+
         }
         yield return null;
     }
@@ -157,5 +170,29 @@ public class PlayerController : MonoBehaviour {
     void Enable()
     {
         enabled = true;
+    }
+
+    GameObject getLeastX(Collider2D[] ptList) {
+        GameObject res = null;
+        for (int i = 0; i  < ptList.Length; i++){
+            if (res == null || ptList[i].transform.position.x < res.transform.position.x)
+            {
+                res = ptList[i].gameObject;
+            }
+        }
+        return res;
+    }
+
+    GameObject getGreatestX(Collider2D[] ptList)
+    {
+        GameObject res = null;
+        for (int i = 0; i < ptList.Length; i++)
+        {
+            if (res == null || ptList[i].transform.position.x > res.transform.position.x)
+            {
+                res = ptList[i].gameObject;
+            }
+        }
+        return res;
     }
 }
