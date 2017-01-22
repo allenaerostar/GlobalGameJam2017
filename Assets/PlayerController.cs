@@ -133,7 +133,10 @@ public class PlayerController : MonoBehaviour {
     IEnumerator WatchForSmash() {
 
         while (!onGround) {
-            Collider2D ballInReach = Physics2D.OverlapCircle(new Vector2(transform.position.x + circleOffset.x, transform.position.y + circleOffset.y), circleRadius, layerMask: LayerMask.GetMask("Ball"));
+            Collider2D ballInReach = Physics2D.OverlapCircle(
+                new Vector2(transform.position.x + circleOffset.x, transform.position.y + circleOffset.y), 
+                circleRadius, 
+                layerMask: LayerMask.GetMask("Ball"));
             if (ballInReach != null && Input.GetButtonDown(fire)) {
                 SmashTheBall(ballInReach.gameObject);
                 yield return new WaitForSeconds(spikeCD);
@@ -162,7 +165,7 @@ public class PlayerController : MonoBehaviour {
     GameObject getLeastX(Collider2D[] ptList) {
         GameObject res = null;
         for (int i = 0; i  < ptList.Length; i++){
-            if (ptList[i].transform.position.x < res.transform.position.x || res == null)
+            if (res == null || ptList[i].transform.position.x < res.transform.position.x)
             {
                 res = ptList[i].gameObject;
             }
@@ -175,7 +178,7 @@ public class PlayerController : MonoBehaviour {
         GameObject res = null;
         for (int i = 0; i < ptList.Length; i++)
         {
-            if (ptList[i].transform.position.x > res.transform.position.x || res == null)
+            if (res == null || ptList[i].transform.position.x > res.transform.position.x)
             {
                 res = ptList[i].gameObject;
             }
