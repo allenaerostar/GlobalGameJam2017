@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/henry's work/Main Menu.unity
+    path: Assets/henry's work/MainMenu2.unity
   - enabled: 1
-    path: Assets/henry's work/scene_henry.unity
+    path: Assets/Scenes/GameScene.unity
