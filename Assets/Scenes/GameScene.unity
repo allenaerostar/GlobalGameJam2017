@@ -4022,7 +4022,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 723013963}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: ec5b0e2293dd0e346a8bad219bd17a7d, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
@@ -6969,7 +6969,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1401714048}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: ec5b0e2293dd0e346a8bad219bd17a7d, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
@@ -8225,11 +8225,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4373988506666322, guid: 0db81237331439544a60ae431345703e, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 4.57
+      value: 5.2
       objectReference: {fileID: 0}
     - target: {fileID: 4373988506666322, guid: 0db81237331439544a60ae431345703e, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -3.18
+      value: 0.16
       objectReference: {fileID: 0}
     - target: {fileID: 4373988506666322, guid: 0db81237331439544a60ae431345703e, type: 2}
       propertyPath: m_LocalPosition.z
@@ -8257,27 +8257,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114600065684150520, guid: 0db81237331439544a60ae431345703e,
         type: 2}
-      propertyPath: spikeCD
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114600065684150520, guid: 0db81237331439544a60ae431345703e,
-        type: 2}
-      propertyPath: flatForce
-      value: 10000
-      objectReference: {fileID: 0}
-    - target: {fileID: 114600065684150520, guid: 0db81237331439544a60ae431345703e,
-        type: 2}
-      propertyPath: maxCharge
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 114600065684150520, guid: 0db81237331439544a60ae431345703e,
-        type: 2}
-      propertyPath: chargeSpeed
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 114600065684150520, guid: 0db81237331439544a60ae431345703e,
-        type: 2}
-      propertyPath: ballSmashMultiplier
+      propertyPath: groundcastDist
       value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -9409,23 +9389,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4b016e1db55a54348bcb3233e0803be7, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1854502144 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1321053478567468, guid: 0db81237331439544a60ae431345703e,
-    type: 2}
-  m_PrefabInternal: {fileID: 1670225989}
---- !u!114 &1854502145
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1854502144}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d41f3110a23a274b92c5554a13c66f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startPosition: {x: 4.57, y: -3.18}
 --- !u!4 &1856784354 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4116642708408924, guid: 44c44daef6a780e43b913902147b2f70,
