@@ -187,7 +187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ced6c0e4d3436a34eb97c59f4fb59871, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosion: {fileID: 7400000, guid: bdb980f9f29bc8243a97a9f7487f2dae, type: 2}
+  explosion: {fileID: 7400000, guid: c092b1639c3f1a14594023e27cf26298, type: 2}
   explosionSFX: {fileID: 8300000, guid: c809d34ae1ef77b4298c77a99d6bfdaa, type: 3}
 --- !u!212 &212744149434532106
 SpriteRenderer:
