@@ -23,11 +23,8 @@ public class GoalNet_script : MonoBehaviour {
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Ball"))
         {
-<<<<<<< HEAD
 			//Play Anim
-=======
             audiosource.PlayDelayed(0.7f);
->>>>>>> origin/henry
             other.GetComponent<GeneralBall_script>().ballExplode();
             //Add points
 			if (teamOfNet == "Blue")
