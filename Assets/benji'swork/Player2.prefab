@@ -141,8 +141,8 @@ MonoBehaviour:
   maxCharge: 5
   chargeSpeed: 6
   groundcastDist: 2
-  circleOffset: {x: 3, y: 0}
-  circleRadius: 5
+  overlapOffset: {x: 0, y: 0}
+  areaSize: {x: 2, y: 3}
   ballSmashMultiplier: 1.5
   flatForce: 5
   playerNo: 2
@@ -161,6 +161,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   playerNo: 2
+  facingRight: 1
 --- !u!114 &114927173776780586
 MonoBehaviour:
   m_ObjectHideFlags: 1
