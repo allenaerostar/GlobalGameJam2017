@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class KnockUpAudience : MonoBehaviour {
 
-	public GameObject audienceBlock;
 	public Animator anim;
 	public LayerMask whatIsGround;
 	public Transform groundCheck;
@@ -13,7 +12,7 @@ public class KnockUpAudience : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {	
-		anim = audienceBlock.GetComponent<Animator> ();
+		anim = GetComponent<Animator> ();
 	}
 		
 	void FixedUpdate(){
