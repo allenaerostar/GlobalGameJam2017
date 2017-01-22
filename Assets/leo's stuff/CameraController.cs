@@ -31,16 +31,16 @@ public class CameraController : MonoBehaviour {
 		float max = ball.transform.position.x;
 		foreach (GameObject player in players){
 			float playerX = player.transform.position.x;
+
+			// check that it's not too far offscreen
 			if (!(camera.WorldToScreenPoint (player.transform.position).x < (0 - distanceThreshold)) &&
-			   !(camera.WorldToScreenPoint (player.transform.position).x > (camera.pixelWidth + distanceThreshold))) {
+				!(camera.WorldToScreenPoint (player.transform.position).x > (camera.pixelWidth + distanceThreshold))) {
 				if (playerX > max) {
 					max = playerX;
 				} else if (playerX < min) {
 					min = playerX;
 				}
-				// TODO: set inactivate arrow
 			} else {
-				// TODO: set arrow activate
 				reconsiderPlayer = true;
 			}
 		}
@@ -50,7 +50,6 @@ public class CameraController : MonoBehaviour {
 			transform.position = Vector3.Lerp (this.transform.position, newPosition + offset, speed);
 		} else {
 			transform.position = Vector3.Lerp (this.transform.position, newPosition + offset, slowSpeed);
-
 		}
 	}
 }
