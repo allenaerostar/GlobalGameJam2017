@@ -3303,11 +3303,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4234507971613884, guid: 1550961d094abae43a37551990f8cb0e, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 16.9
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4234507971613884, guid: 1550961d094abae43a37551990f8cb0e, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 10.09
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4234507971613884, guid: 1550961d094abae43a37551990f8cb0e, type: 2}
       propertyPath: m_LocalPosition.z
@@ -6061,6 +6061,33 @@ Prefab:
       propertyPath: gameBehaviour
       value: 
       objectReference: {fileID: 554771912}
+    - target: {fileID: 212084147693470688, guid: eb0fc10538e8a2148a71f3a7ca0264c4,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300010, guid: 2f3359fd566196848a638b0482831836,
+        type: 3}
+    - target: {fileID: 212377573539142234, guid: eb0fc10538e8a2148a71f3a7ca0264c4,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300012, guid: 2f3359fd566196848a638b0482831836,
+        type: 3}
+    - target: {fileID: 212301554516150236, guid: eb0fc10538e8a2148a71f3a7ca0264c4,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300018, guid: 2f3359fd566196848a638b0482831836,
+        type: 3}
+    - target: {fileID: 1697049332446034, guid: eb0fc10538e8a2148a71f3a7ca0264c4, type: 2}
+      propertyPath: m_Name
+      value: RedGoalNet
+      objectReference: {fileID: 0}
+    - target: {fileID: 114683806004059954, guid: eb0fc10538e8a2148a71f3a7ca0264c4,
+        type: 2}
+      propertyPath: teamOfNet
+      value: Red
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: eb0fc10538e8a2148a71f3a7ca0264c4, type: 2}
   m_IsPrefabParent: 0
@@ -8053,6 +8080,33 @@ Prefab:
       propertyPath: gameBehaviour
       value: 
       objectReference: {fileID: 554771912}
+    - target: {fileID: 1606930162573014, guid: 9c4c1daf9569009409b3ab8c42916b71, type: 2}
+      propertyPath: m_Name
+      value: BlueGoalNet
+      objectReference: {fileID: 0}
+    - target: {fileID: 114630981143945048, guid: 9c4c1daf9569009409b3ab8c42916b71,
+        type: 2}
+      propertyPath: teamOfNet
+      value: Blue
+      objectReference: {fileID: 0}
+    - target: {fileID: 212209275316890560, guid: 9c4c1daf9569009409b3ab8c42916b71,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300014, guid: 2f3359fd566196848a638b0482831836,
+        type: 3}
+    - target: {fileID: 212192489001141244, guid: 9c4c1daf9569009409b3ab8c42916b71,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300020, guid: 2f3359fd566196848a638b0482831836,
+        type: 3}
+    - target: {fileID: 212085321051956500, guid: 9c4c1daf9569009409b3ab8c42916b71,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300016, guid: 2f3359fd566196848a638b0482831836,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9c4c1daf9569009409b3ab8c42916b71, type: 2}
   m_IsPrefabParent: 0
