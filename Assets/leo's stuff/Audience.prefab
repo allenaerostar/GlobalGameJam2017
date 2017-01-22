@@ -23,8 +23,12 @@ GameObject:
   - component: {fileID: 50446325642403558}
   - component: {fileID: 61469678294280868}
   - component: {fileID: 95914259434203770}
+<<<<<<< HEAD
+  m_Layer: 0
+=======
   - component: {fileID: 114153410352081844}
   m_Layer: 11
+>>>>>>> a709d4be47c68b17b21935d5d5594e5b2b63e66c
   m_Name: Audience
   m_TagString: Untagged
   m_Icon: {fileID: 0}
