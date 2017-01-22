@@ -10,19 +10,18 @@ public class LoadGameEndInfo : MonoBehaviour {
 	public Text redScore;
 	public Color blue;
 	public Color red;
+	public Text blueUI;
+	public Text redUI;
 
-	public void SetInfo(string winner, string bScore, string rScore){
-		if (winner == "Blue") {
+	void Start(){
+		blueScore.GetComponent<Text> ().text = blueUI.GetComponent<Text> ().text;
+		redScore.GetComponent<Text> ().text = redUI.GetComponent<Text> ().text;
+		if (int.Parse (blueScore.GetComponent<Text> ().text) < int.Parse (redScore.GetComponent<Text> ().text)) {
 			winnerText.color = blue;
 			winnerText.GetComponent<Text> ().text = "BLUE TEAM WINS";
-		} else if (winner == "Red") {
+		} else {
 			winnerText.color = red;
 			winnerText.GetComponent<Text> ().text = "RED TEAM WINS";
-		} else {
-			Debug.Log ("Invalid winner passed. Must be Red or Blue.");
 		}
-
-		blueScore.GetComponent<Text> ().text = bScore;
-		redScore.GetComponent<Text> ().text  = rScore;
 	}
 }

@@ -13,6 +13,8 @@ public class GameBehaviour : MonoBehaviour {
 
 	public GameObject camera;
 
+	public GameObject winnerScreen;
+
 	// Use this for initialization
 	void Start () {
   //      getTime.GetComponent<Timer>().pauseTimer();
@@ -60,6 +62,6 @@ public class GameBehaviour : MonoBehaviour {
 
 		//After overtime
 		//Show some UI
-
+		winnerScreen.SetActive(true);
 	}
 }
