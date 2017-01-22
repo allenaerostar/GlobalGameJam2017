@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour {
 	string horizontal;
 	float dir;
 	Rigidbody2D rb;
-	bool facingRight = true;
+	public bool facingRight = true;
 	Animator anim;
 
 	// Use this for initialization
