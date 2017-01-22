@@ -15,7 +15,7 @@ public class GameBehaviour : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        getTime.GetComponent<Timer>().pauseTimer();
+  //      getTime.GetComponent<Timer>().pauseTimer();
         StartCoroutine (watchForEnd());
 	}
 	
