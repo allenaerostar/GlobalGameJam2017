@@ -7,8 +7,8 @@ public class PlayerController : MonoBehaviour {
     public float maxCharge;
     public float chargeSpeed;
     public float groundcastDist;
-    public Vector2 circleOffset;
-    public float circleRadius;
+    public Vector2 overlapOffset;
+    public Vector2 areaSize;
     public float ballSmashMultiplier;
     public float flatForce;
     public int playerNo;
@@ -120,7 +120,7 @@ public class PlayerController : MonoBehaviour {
     void SmashTheBall(GameObject ball) {
         //Smash the ball
         Vector2 dirToBall = ball.transform.position - transform.position;
-        float angle = -Vector2.Angle(Vector2.down, dirToBall)/2;
+        float angle = -Vector2.Angle(Vector2.down, dirToBall)/2 * transform.localScale.x;
         Vector2 newDir = Quaternion.Euler(0, 0, angle) * dirToBall;
         Debug.Log("dirToBall " + dirToBall + ", hit Vector " + newDir);
 		Rigidbody2D ballRb = ball.GetComponent<Rigidbody2D> ();
@@ -132,9 +132,10 @@ public class PlayerController : MonoBehaviour {
     IEnumerator WatchForSmash() {
 
         while (!onGround) {
-            Collider2D ballInReach = Physics2D.OverlapCircle(
-                new Vector2(transform.position.x + circleOffset.x, transform.position.y + circleOffset.y), 
-                circleRadius, 
+
+            Collider2D ballInReach = Physics2D.OverlapArea(
+                new Vector2(transform.position.x + transform.localScale.x * overlapOffset.x, transform.position.y + overlapOffset.y + areaSize.y/2), 
+                new Vector2(transform.position.x + transform.localScale.x * (overlapOffset.x + areaSize.x), transform.position.y + overlapOffset.y - areaSize.y / 2), 
                 layerMask: LayerMask.GetMask("Ball"));
             if (Input.GetButtonDown(fire))
             {
