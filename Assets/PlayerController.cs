@@ -23,6 +23,11 @@ public class PlayerController : MonoBehaviour {
     public float spikeCD;
     float currentCD;
 
+    //announcing attack
+    public bool canMove;
+
+    Animator anim;
+
     // Use this for initialization
     void Start () {
         chargeLvl = 0f;
@@ -31,30 +36,44 @@ public class PlayerController : MonoBehaviour {
         fire += playerNo;
         Debug.Log(fire);
         currentCD = 0;
+        canMove = true;
+
+        anim = GetComponent<Animator>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
         onGround = Physics2D.Raycast(transform.position, Vector2.down, distance: groundcastDist, layerMask: groundMask);
+        anim.SetBool("grounded", onGround);
         if (onGround)
         {
             if (Input.GetButton(fire) && chargeLvl < maxCharge)
             {
+                canMove = false;
                 chargeLvl += Time.deltaTime * chargeSpeed;
+                anim.SetBool("charging", true);
                 // risk of overcharge?
             }
             else if (Input.GetButtonUp(fire))
             {
-                SmashTheTile();
+                anim.SetBool("charging", false);
+                if (chargeLvl >= 1)
+                {
+                    SmashTheTile();
+                }
                 chargeLvl = 0;
             }
-
-            launchedCheck = false;
+            if (launchedCheck)
+            {
+                launchedCheck = false;
+            }
         }
 
         else
         {
             chargeLvl = 0;
+            canMove = true;
+            anim.SetBool("charging", false);
             if (!launchedCheck)
             {
                 StartCoroutine(WatchForSmash());
@@ -77,21 +96,37 @@ public class PlayerController : MonoBehaviour {
     void SmashTheTile() {
         //Smash the tile
         //Use localscale.x for dir
-        RaycastHit2D findBlock = Physics2D.Raycast(transform.position, Vector2.down, distance: groundcastDist, layerMask: LayerMask.GetMask("Block"));
+        anim.SetTrigger("fire");
+        Collider2D body = GetComponent<Collider2D>();
+        Bounds bodySize = body.bounds;
+        Collider2D[] findBlock = Physics2D.OverlapAreaAll(new Vector2(body.transform.position.x - bodySize.extents.x, body.transform.position.y + bodySize.extents.y),
+                                                          new Vector2(body.transform.position.x + bodySize.extents.x, body.transform.position.y - bodySize.extents.y - 0.5f),
+                                                          layerMask: LayerMask.GetMask("Block"));
         Debug.Log(onGround + "  " + chargeLvl);
-        if (findBlock.collider != null) {
-            findBlock.collider.gameObject.GetComponent<KnockUpBlock>().StartKnockUp((int)chargeLvl, flatForce, transform.localScale.x > 0);
-
+        if (findBlock.Length != 0) {
+            if (transform.localScale.x > 0) {
+                findBlock[findBlock.Length - 1].gameObject.GetComponent<KnockUpBlock>().StartKnockUp((int)chargeLvl, flatForce, true);
+            }
+            else
+            {
+                findBlock[0].gameObject.GetComponent<KnockUpBlock>().StartKnockUp((int)chargeLvl, flatForce, false);
+            }
+            
+            canMove = true;
+            Disable(spikeCD);
         }
     }
 
     void SmashTheBall(GameObject ball) {
         //Smash the ball
+        anim.SetTrigger("fire");
         Vector2 dirToBall = ball.transform.position - transform.position;
         float angle = -Vector2.Angle(Vector2.down, dirToBall)/2;
         Vector2 newDir = Quaternion.Euler(0, 0, angle) * dirToBall;
         Debug.Log("dirToBall " + dirToBall + ", hit Vector " + newDir);
-        ball.GetComponent<Rigidbody2D>().AddForce(ballSmashMultiplier * newDir, ForceMode2D.Impulse);
+		Rigidbody2D ballRb = ball.GetComponent<Rigidbody2D> ();
+		ballRb.velocity = Vector2.zero;
+		ballRb.AddForce(ballSmashMultiplier * newDir, ForceMode2D.Impulse);
         currentCD = spikeCD;
     }
 
@@ -107,7 +142,20 @@ public class PlayerController : MonoBehaviour {
                 yield return new WaitForFixedUpdate();
             }
         }
-
         yield return null;
+    }
+
+    void Disable(float time)
+    {
+        enabled = false;
+        // If we were called multiple times, reset timer.
+        CancelInvoke("Enable");
+        // Note: Even if we have disabled the script, Invoke will still run.
+        Invoke("Enable", time);
+    }
+
+    void Enable()
+    {
+        enabled = true;
     }
 }
