@@ -9,9 +9,12 @@ public class KnockUpBlock : MonoBehaviour {
 	public GameObject rightBlock;
 	public float seconds;
 
+    AudioSource bounceAudio;
+
 
 	// Use this for initialization
 	void Start () {
+        bounceAudio = transform.parent.gameObject.GetComponent<AudioSource>();
 	}
 
 	IEnumerator KnockUp(int range, float force, bool direction){
@@ -20,8 +23,8 @@ public class KnockUpBlock : MonoBehaviour {
 
 			//false = left, true = right
 			yield return new WaitForSeconds (seconds);
-
-			if (leftBlock!= null && !direction) {
+            bounceAudio.Play();
+            if (leftBlock!= null && !direction) {
 				StartCoroutine (leftBlock.GetComponent<KnockUpBlock> ().KnockUp(range - 1, force, direction));
 			} else if(rightBlock != null && direction) {
 				StartCoroutine(rightBlock.GetComponent<KnockUpBlock>().KnockUp(range -1, force, direction));
