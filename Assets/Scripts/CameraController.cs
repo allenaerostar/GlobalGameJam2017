@@ -65,5 +65,10 @@ public class CameraController : MonoBehaviour {
 		}
 		currentSpeed = normalSpeed;
 	}
+
+	// get new ball when a goal is made and the current ball is destroyed
+	public void setNewBall(GameObject newBall){
+		ball = newBall;
+	}
 }
 
