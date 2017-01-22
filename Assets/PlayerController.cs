@@ -57,10 +57,11 @@ public class PlayerController : MonoBehaviour {
             else if (Input.GetButtonUp(fire))
             {
                 anim.SetBool("charging", false);
-                anim.SetTrigger("fire");
-                SmashTheTile();
+                if (chargeLvl >= 1)
+                {
+                    SmashTheTile();
+                }
                 chargeLvl = 0;
-                canMove = true;
             }
             if (launchedCheck)
             {
@@ -93,11 +94,24 @@ public class PlayerController : MonoBehaviour {
     void SmashTheTile() {
         //Smash the tile
         //Use localscale.x for dir
-        RaycastHit2D findBlock = Physics2D.Raycast(transform.position, Vector2.down, distance: groundcastDist, layerMask: LayerMask.GetMask("Block"));
+        anim.SetTrigger("fire");
+        Collider2D body = GetComponent<Collider2D>();
+        Bounds bodySize = body.bounds;
+        Collider2D[] findBlock = Physics2D.OverlapAreaAll(new Vector2(body.transform.position.x - bodySize.extents.x, body.transform.position.y + bodySize.extents.y),
+                                                          new Vector2(body.transform.position.x + bodySize.extents.x, body.transform.position.y - bodySize.extents.y - 0.5f),
+                                                          layerMask: LayerMask.GetMask("Block"));
         Debug.Log(onGround + "  " + chargeLvl);
-        if (findBlock.collider != null) {
-            findBlock.collider.gameObject.GetComponent<KnockUpBlock>().StartKnockUp((int)chargeLvl, flatForce, transform.localScale.x > 0);
-
+        if (findBlock.Length != 0) {
+            if (transform.localScale.x > 0) {
+                findBlock[findBlock.Length - 1].gameObject.GetComponent<KnockUpBlock>().StartKnockUp((int)chargeLvl, flatForce, true);
+            }
+            else
+            {
+                findBlock[0].gameObject.GetComponent<KnockUpBlock>().StartKnockUp((int)chargeLvl, flatForce, false);
+            }
+            
+            canMove = true;
+            Disable(spikeCD);
         }
     }
 
@@ -126,7 +140,6 @@ public class PlayerController : MonoBehaviour {
                 yield return new WaitForFixedUpdate();
             }
         }
-        Disable(2);
         yield return null;
     }
 
