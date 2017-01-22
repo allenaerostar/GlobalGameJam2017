@@ -22,9 +22,9 @@ GameObject:
   - component: {fileID: 212744149434532106}
   - component: {fileID: 50895580631770804}
   - component: {fileID: 114529271701868810}
-  - component: {fileID: 95624369161924072}
   - component: {fileID: 58028152534339006}
   - component: {fileID: 82506695094460132}
+  - component: {fileID: 95961562388059052}
   m_Layer: 8
   m_Name: Ball Object
   m_TagString: Untagged
@@ -159,7 +159,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!95 &95624369161924072
+--- !u!95 &95961562388059052
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
@@ -168,7 +168,7 @@ Animator:
   m_GameObject: {fileID: 1079191673783218}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d8175b120753a2a4387ed8c70eb17961, type: 2}
+  m_Controller: {fileID: 9100000, guid: f6f59a99efb3e374a8ccb411e6eee5ba, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
