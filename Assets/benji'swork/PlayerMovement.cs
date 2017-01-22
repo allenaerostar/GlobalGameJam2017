@@ -24,20 +24,20 @@ public class PlayerMovement : MonoBehaviour {
 	void Update () {
 		dir = Input.GetAxis (horizontal);
 
-		if (GetComponent<PlayerController> ().canMove) {
-			anim.SetFloat ("speed", Mathf.Abs (speed * dir));
-			if (dir < -0.05f && facingRight) {
-				facingRight = false;
-				transform.localScale = new Vector3 (-1 * transform.localScale.x, transform.localScale.y, transform.localScale.z);
-			} else if (dir > 0.05f && !facingRight) {
-				facingRight = true;
-				transform.localScale = new Vector3 (-1 * transform.localScale.x, transform.localScale.y, transform.localScale.z);
-			}
+		anim.SetFloat ("speed", Mathf.Abs (speed * dir));
+		if (dir < -0.05f && facingRight) {
+			facingRight = false;
+			transform.localScale = new Vector3 (-1 * transform.localScale.x, transform.localScale.y, transform.localScale.z);
+		} else if (dir > 0.05f && !facingRight) {
+			facingRight = true;
+			transform.localScale = new Vector3 (-1 * transform.localScale.x, transform.localScale.y, transform.localScale.z);
 		}
 	}
 
 	void FixedUpdate(){
-		Debug.Log (dir);
-		rb.velocity = new Vector2(dir * speed, rb.velocity.y);
+		if(GetComponent<PlayerController> ().canMove)
+			rb.velocity = new Vector2(dir * speed, rb.velocity.y);
+		else
+			rb.velocity = new Vector2(0, rb.velocity.y);
 	}
 }
