@@ -7,6 +7,7 @@ public class MainMenuController_script : MonoBehaviour {
 
     public void startGame()
     {
+        //change "scene_henry" to the name of the main scene.
         SceneManager.LoadScene("scene_henry");
     }
 

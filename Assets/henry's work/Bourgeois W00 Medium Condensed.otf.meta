@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 3644495a4988094498966e3ccedf20c3
+timeCreated: 1485062728
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: BourgeoisW00-MediumCond
+  fontNames:
+  - BourgeoisW00-MediumCond
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GoalNet_script : MonoBehaviour {
 
+    AudioSource audiosource;
+
     //sets which team does the net belong to.
     public string teamOfNet;
     //references the scoreCounter GameObject.
@@ -11,12 +13,21 @@ public class GoalNet_script : MonoBehaviour {
 	//reference to GameBehaviour
 	public GameObject gameBehaviour;
 
+    void Start()
+    {
+        audiosource = this.GetComponent<AudioSource>();
+    }
+
     //Checks whenever the ball enters the net, call ballExplode() and updates team scores accordingly.
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Ball"))
         {
+<<<<<<< HEAD
 			//Play Anim
+=======
+            audiosource.PlayDelayed(0.7f);
+>>>>>>> origin/henry
             other.GetComponent<GeneralBall_script>().ballExplode();
             //Add points
 			if (teamOfNet == "Blue")

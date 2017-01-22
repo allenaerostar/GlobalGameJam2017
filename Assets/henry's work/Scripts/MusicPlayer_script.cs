@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MusicPlayer_script : MonoBehaviour {
 
+<<<<<<< HEAD
 	// Use this for initialization
 	void Start () {
 		
@@ -11,6 +12,16 @@ public class MusicPlayer_script : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+=======
+	void Start ()
+    {
+        DontDestroyOnLoad(gameObject);
+	}
+	
+	// Update is called once per frame
+	void Update ()
+    {
+>>>>>>> origin/henry
 		
 	}
 }
