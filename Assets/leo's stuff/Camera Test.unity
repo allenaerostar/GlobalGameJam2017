@@ -3231,8 +3231,9 @@ MonoBehaviour:
   - {fileID: 1301313953}
   - {fileID: 1497505121}
   - {fileID: 2039091303}
-  speed: 0.1
+  normalSpeed: 0.05
   slowSpeed: 0.01
+  slowSpeedTime: 2
   distanceThreshold: 100
 --- !u!1 &1023365616 stripped
 GameObject:
