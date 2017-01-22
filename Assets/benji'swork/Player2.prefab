@@ -138,15 +138,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a718ea33156a77949acd4ec08d968e29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxCharge: 5
-  chargeSpeed: 6
+  maxCharge: 15
+  chargeSpeed: 30
   groundcastDist: 2
   overlapOffset: {x: 0, y: 0}
   areaSize: {x: 2, y: 3}
-  ballSmashMultiplier: 1.5
-  flatForce: 5
+  ballSmashMultiplier: 2
+  flatForce: 10000
   playerNo: 2
-  spikeCD: 2
+  spikeCD: 0.5
   canMove: 0
 --- !u!114 &114824636054279644
 MonoBehaviour:
