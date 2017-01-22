@@ -8,9 +8,9 @@ public class TimerDisplay : MonoBehaviour {
 	public Text timerText;
 	public GameObject timer;
 
+
 	// Use this for initialization
 	void Start () {
-		timerText = GetComponent<Text> ();
 	}
 	
 	// Update is called once per frame
