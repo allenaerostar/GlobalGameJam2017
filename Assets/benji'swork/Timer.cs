@@ -13,7 +13,7 @@ public class Timer : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		timeInSeconds = maxTimeInSeconds;
-		counting = true;
+		//counting = true;
 	}
 
 	// Update is called once per frame

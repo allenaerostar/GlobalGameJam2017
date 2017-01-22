@@ -16,7 +16,9 @@ public class countDownScreen : MonoBehaviour {
     void Update()
     {
         countdownDisplay.text = timer.GetComponent<Timer>().countdownNum.ToString();
-        if (timer.GetComponent<Timer>().countdownNum == 0)
-            gameObject.SetActive(false);
+		if (timer.GetComponent<Timer> ().countdownNum == 0) {
+			gameObject.SetActive (false);
+			timer.GetComponent<Timer> ().counting = true;
+		}
     }
 }

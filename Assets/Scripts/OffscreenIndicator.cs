@@ -171,5 +171,9 @@ public class OffscreenIndicator : MonoBehaviour {
 		}
 
 		return false;
-	} 
+	}
+
+	void OnDestroy() {
+		Destroy (indicator);
+	}
 }
