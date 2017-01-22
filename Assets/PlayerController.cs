@@ -60,7 +60,9 @@ public class PlayerController : MonoBehaviour {
                 if (chargeLvl >= 1)
                 {
                     SmashTheTile();
+                    Disable(spikeCD);
                 }
+                canMove = true;
                 chargeLvl = 0;
             }
             if (launchedCheck)
@@ -105,15 +107,13 @@ public class PlayerController : MonoBehaviour {
         Debug.Log(onGround + "  " + chargeLvl);
         if (findBlock.Length != 0) {
             if (transform.localScale.x > 0) {
-                findBlock[findBlock.Length - 1].gameObject.GetComponent<KnockUpBlock>().StartKnockUp((int)chargeLvl, flatForce, true);
+                getGreatestX(findBlock).GetComponent<KnockUpBlock>().StartKnockUp((int)chargeLvl, flatForce, true);
             }
             else
             {
-                findBlock[0].gameObject.GetComponent<KnockUpBlock>().StartKnockUp((int)chargeLvl, flatForce, false);
+                getLeastX(findBlock).GetComponent<KnockUpBlock>().StartKnockUp((int)chargeLvl, flatForce, false);
             }
             
-            canMove = true;
-            Disable(spikeCD);
         }
     }
 
@@ -155,5 +155,29 @@ public class PlayerController : MonoBehaviour {
     void Enable()
     {
         enabled = true;
+    }
+
+    GameObject getLeastX(Collider2D[] ptList) {
+        GameObject res = null;
+        for (int i = 0; i  < ptList.Length; i++){
+            if (ptList[i].transform.position.x < res.transform.position.x || res == null)
+            {
+                res = ptList[i].gameObject;
+            }
+        }
+        return res;
+    }
+
+    GameObject getGreatestX(Collider2D[] ptList)
+    {
+        GameObject res = null;
+        for (int i = 0; i < ptList.Length; i++)
+        {
+            if (ptList[i].transform.position.x > res.transform.position.x || res == null)
+            {
+                res = ptList[i].gameObject;
+            }
+        }
+        return res;
     }
 }
