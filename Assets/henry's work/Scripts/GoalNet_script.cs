@@ -34,7 +34,7 @@ public class GoalNet_script : MonoBehaviour {
             else
                 Debug.Log(gameObject.name + " has teamOfNet variable set to an incorrect name, please set to either 'Red' or 'Blue'.");
 			//Reset Playing field
-			gameObject.GetComponent<GameBehaviour>().resetAllPositions();
+			gameBehaviour.GetComponent<GameBehaviour>().resetAllPositions();
         }
     }
 }
